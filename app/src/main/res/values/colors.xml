@@ -3,4 +3,9 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="branco">#FFFFFF</color>
+    <color name="appVerde">#2DE5AA</color>
+    <color name="appAzulClaro">#367EC0</color>
+    <color name="appAzulEscuro">#3B48CC</color>
+
 </resources>

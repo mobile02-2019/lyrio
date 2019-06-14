@@ -20,11 +20,11 @@ public class SplashActivity extends AppCompatActivity {
             public void run() {
                 irParaUserLoginActivity();
             }
-        }, 3000);
+        }, 2000);
     }
 
     private void irParaUserLoginActivity () {
-        Intent intent = new Intent(this, UserLoginActivity.class);
+        Intent intent = new Intent(this, UserEsqueciMinhaSenha.class);
         startActivity(intent);
     }
 }
