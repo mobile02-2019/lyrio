@@ -6,12 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import java.util.regex.Pattern;
 
 public class UserEsqueciMinhaSenha extends AppCompatActivity {
 
     public final Pattern textPattern = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$");
+    private String mailRegex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
 
     private String gotEmail = "thiferas@gmail.com";
     private String gotSenha = "P1poca";
@@ -21,6 +21,7 @@ public class UserEsqueciMinhaSenha extends AppCompatActivity {
     private TextView userEmail;
     private TextView userSenha;
     private TextView userConfirmarSenha;
+    private TextView viewTopText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +38,12 @@ public class UserEsqueciMinhaSenha extends AppCompatActivity {
         userEmail = findViewById(R.id.user_esqueci_email);
         userSenha = findViewById(R.id.user_esqueci_senha);
         userConfirmarSenha = findViewById(R.id.user_esqueci_confirmar_senha);
+        viewTopText = findViewById(R.id.txtTop);
         
         buttonSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                viewTopText.setText("nao testado");
                 confirmarDados();
             }
         });
@@ -48,54 +51,111 @@ public class UserEsqueciMinhaSenha extends AppCompatActivity {
         buttonCancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cancelarTudo();
+                cancelar();
             }
         });
 
     }
 
-    private void cancelarTudo() {
-        Intent intent = new Intent(this, SplashActivity.class);
+    private void cancelar() {
+        Intent intent = new Intent(this, TabMenu.class);
+        Bundle bundle = new Bundle();
+        bundle.putInt("NUMERO", 0);
+        intent.putExtras(bundle);
         startActivity(intent);
     }
 
+    //Validar se o usuário digitou um email existente e uma nova senha, enviando esses dados para a tela tabMenu
     private void confirmarDados() {
-        userEmail.setError(null);
-        userSenha.setError(null);
-        userConfirmarSenha.setError(null);
+        boolean validMail = false;
+        boolean validSenha = false;
 
         String emailDigitado = userEmail.getEditableText().toString();
         String senhaDigitada = userSenha.getEditableText().toString();
         String senhaConfirmada = userConfirmarSenha.getEditableText().toString();
 
-        if(emailDigitado.equals(gotEmail)){
-            if(senhaValida(senhaDigitada)&&senhaValida(senhaConfirmada)){
-                if(senhaDigitada.equals(senhaConfirmada)&&!senhaDigitada.equals(gotSenha)){
-                    Intent intent = new Intent(this, SplashActivity.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putString("EMAIL", emailDigitado);
-                    bundle.putString("SENHA", senhaDigitada);
-                    intent.putExtras(bundle);
-                    startActivity(intent);
-                }else{
-                    if(senhaDigitada.equals(gotSenha)){
-                        userSenha.setError("Senha utilizada anteriormente");
-                    }else{
-                        userSenha.setError("As senhas não correspondem");
-                        userConfirmarSenha.setError("As senhas não correspondem");
-                    }
-                }
+        userEmail.setError(null);
+        userSenha.setError(null);
+        userConfirmarSenha.setError(null);
+
+        //Conferir se o email é válido
+        if(emailValido(emailDigitado)){
+            if(emailDigitado.equals(gotEmail)){
+                validMail = true;
             }else{
-                userSenha.setError("As senhas devem conter números, letras maiúsculas e minúsculas");
-                userConfirmarSenha.setError("As senhas devem conter números, letras maiúsculas e minúsculas");
+                userEmail.setError("Usuário não encontrado");
             }
         }else{
-            userEmail.setError("Usuário não encontrado");
+            userEmail.setError("Digite um e-mail válido");
+        }
+
+        if(senhaDigitada.trim().length()>0){
+            if(senhaConfirmada.trim().length()>0){
+                if(senhaValida(senhaDigitada)&&senhaValida(senhaConfirmada)){
+                    if(senhaDigitada.equals(senhaConfirmada)&&!senhaDigitada.equals(gotSenha)){
+                        validSenha = true;
+                    }else{
+                        if(senhaDigitada.equals(gotSenha)){
+                            userSenha.setError("Senha utilizada anteriormente. Escolha uma nova senha");
+                            userSenha.setError("Senha utilizada anteriormente. Escolha uma nova senha");
+                        }else{
+                            userSenha.setError("As senhas não correspondem");
+                            userConfirmarSenha.setError("As senhas não correspondem");
+                        }
+                    }
+                }else{
+                    userSenha.setError("As senhas devem conter números, letras maiúsculas e minúsculas");
+                    userConfirmarSenha.setError("As senhas devem conter números, letras maiúsculas e minúsculas");
+                }
+            }else{
+                userConfirmarSenha.setError("Você deve preencher este espaço");
+            }
+        }else{
+            userSenha.setError("Você deve preencher este espaço");
+        }
+
+        if(validMail&&validSenha){
+            enviarDados(emailDigitado, senhaDigitada);
         }
     }
 
+    // Conferir se a senha tem letras maiúsculas, minúsculas e números.
     private boolean senhaValida(String senha){
         senha = senha.trim();
         return senha.length()>=6&&senha.length()<14&&textPattern.matcher(senha).matches();
+    }
+
+    // Conferir se o email tem um "@" e no mínimo um "." depois do arroba.
+    private boolean emailValido(String mail){
+        return mail.matches(mailRegex);
+
+//        String[] mailAry = mail.split("@");
+//        if(mailAry.length == 2){
+//            try{
+//                if(mailAry[0].trim().length()>0 && mailAry[1].trim().length()>0) {
+//                    String[] mailAryEnd = mailAry[1].split("\\.");
+////                    viewTopText.setText(getString(R.string.testString, "length = ", mailAryEnd.length));
+//                    return mailAryEnd.length == 2 || mailAryEnd.length == 3;
+//                }else{
+//                    return false;
+//                }
+//            }catch(Exception e){
+//                return false;
+//            }
+//        }else{
+//            return false;
+//        }
+
+    }
+
+    // Chama o activity "TabMenu" e envia os dados do email e senha do usuário.
+    private void enviarDados(String emailDigitado, String senhaDigitada){
+        Intent intent = new Intent(this, TabMenu.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("EMAIL", emailDigitado);
+        bundle.putString("SENHA", senhaDigitada);
+        bundle.putInt("NUMERO", 0);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 }

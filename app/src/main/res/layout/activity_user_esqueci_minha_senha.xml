@@ -33,10 +33,11 @@
                 android:layout_marginBottom="32dp"
                 android:layout_height="wrap_content"
                 android:text="@string/user_esqueci_minha_senha"
+                android:id="@+id/txtTop"
                 android:layout_marginStart="64dp"
                 android:layout_marginEnd="64dp"
                 android:textAlignment="center"
-                android:textSize="16dp"/>
+                android:textSize="16sp"/>
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
@@ -102,7 +103,7 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="32dp"
-                android:backgroundTint="@color/appVerde"
+                android:backgroundTint="@color/verde"
                 android:text="Salvar"
                 android:textColor="@color/branco" />
 
@@ -114,7 +115,7 @@
                 android:layout_marginEnd="32dp"
                 android:text="Cancelar"
                 android:textColor="@color/branco"
-                android:backgroundTint="@color/appAzulClaro"
+                android:backgroundTint="@color/azulClaro"
                 android:id="@+id/button_user_esqueci_cancelar"/>
 
             <TextView
@@ -124,7 +125,7 @@
                 android:layout_marginStart="64dp"
                 android:layout_marginEnd="64dp"
                 android:textAlignment="center"
-                android:textSize="16dp"/>
+                android:textSize="16sp"/>
 
         </LinearLayout>
 

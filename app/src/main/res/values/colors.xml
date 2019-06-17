@@ -4,8 +4,12 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="branco">#FFFFFF</color>
-    <color name="appVerde">#2DE5AA</color>
-    <color name="appAzulClaro">#367EC0</color>
-    <color name="appAzulEscuro">#3B48CC</color>
+    <color name="cinza">#8492A6</color>
+    <color name="verde">#2DE5AA</color>
+    <color name="azulClaro">#367EC0</color>
+    <color name="azulEscuro">#3B48CC</color>
+    <color name="tabTxtColor">@color/branco</color>
+    <color name="tabIndicadorColor">@color/verde</color>
+
 
 </resources>
