@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bginvertido"
+
+    >
+
+    <android.support.design.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="64dp"
+        app:cardCornerRadius="16dp"
+
+
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="80dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                android:hint="Email"
+
+
+                >
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/emailDigitado"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                android:hint="Senha">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/senhaLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/RegistreSe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Registre-se"
+                    android:textAlignment="center"
+                    android:textColor="@color/preto"
+
+                    />
+
+            </android.support.design.widget.TextInputLayout>
+
+
+            <Button
+                android:id="@+id/botaoLogin"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:layout_marginLeft="48dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="48dp"
+                android:background="@color/verdeBotao"
+                android:elevation="@android:dimen/app_icon_size"
+                android:text="Login"
+                android:textAllCaps="false"
+                android:textColor="@color/Branco"
+                android:textSize="16dp" />
+
+            <ProgressBar
+                android:id="@+id/loading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="64dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="64dp"
+                android:visibility="gone">
+
+            </ProgressBar>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="     -----   OU   -----     "
+                android:textAlignment="center"
+                android:textColor="@color/preto"
+                android:textSize="16dp"
+
+
+                />
+
+            <Button
+                android:id="@+id/BotaoLoginFacebook"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:layout_marginLeft="48dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginRight="48dp"
+                android:background="@color/facebook"
+                android:elevation="@android:dimen/app_icon_size"
+                android:text="Login com Facebook"
+                android:textAllCaps="false"
+                android:textColor="@color/Branco"
+                android:drawableStart="@drawable/ic_facebook"
+                android:textSize="16dp" />
+
+
+            <Button
+                android:id="@+id/BotaoLoginGoogle"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:layout_marginLeft="48dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="48dp"
+                android:background="#F3E6FF"
+                android:text="Login com Google"
+                android:textAllCaps="false"
+                android:textColor="@color/preto"
+                android:textSize="16dp" />
+
+
+
+        </LinearLayout>
+
+    </android.support.design.card.MaterialCardView>
+
+    <Button
+        android:id="@+id/buttonHome"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Home"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textColor="@color/Branco"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.087"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/buttonNoticias"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Notícias"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textColor="@color/Branco"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.998" />
+
+    <Button
+        android:id="@+id/buttonBuscar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="8dp"
+        android:text="Buscar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:textColor="@color/Branco"
+        android:textAllCaps="false"
+        android:textSize="24dp"
+
+        />
+
+</android.support.constraint.ConstraintLayout>
