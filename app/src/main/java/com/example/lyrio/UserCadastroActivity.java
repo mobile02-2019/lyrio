@@ -1,10 +1,10 @@
 package com.example.lyrio;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
@@ -61,20 +61,20 @@ public class UserCadastroActivity extends AppCompatActivity {
                 Snackbar.make(view, "Cadastro realizado com sucesso!", Snackbar.LENGTH_INDEFINITE).setAction("OK", new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        irParaLogin();
+//                        irParaLogin();
                     }
-                }).setActionTextColor(getResources().getColor(R.color.appAzulClaro)).show();
+                }).setActionTextColor(getResources().getColor(R.color.azulClaro)).show();
             }
         }else{
             editTextSenha.setError("A senha deve conter números, letras maiusculas e minusculas ");
         }
     }
 
-    private void irParaLogin() {
-        Intent intent = new Intent(this, UserLoginActivity.class);
-        startActivity(intent);
-
-    }
+//    private void irParaLogin() {
+//        Intent intent = new Intent(this, UserLoginActivity.class);
+//        startActivity(intent);
+//
+//    }
 
     private boolean senhaValida(String senha) {
         senha = senha.trim();

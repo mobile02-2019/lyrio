@@ -2,4 +2,10 @@
     <string name="app_name">Lyrio</string>
     <string name="user_esqueci_minha_senha">Olá!\nPara criar uma nova senha, preencha os campos abaixo com atenção:</string>
     <string name="user_esqueci_minha_senha_lembrete">Lembre-se: sua nova senha deve ter entre 6 e 14 caracteres, sendo composta de letras minúsculas, maiúsculas e números.</string>
+
+    //testingStrings
+    <string name="testString">testing %1$s = %2$d done.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
