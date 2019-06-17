@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_background"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".UserEsqueciMinhaSenha"></activity>
+        <activity android:name=".UserCadastroActivity"></activity>
+        <activity android:name=".UserEsqueciMinhaSenha" />
         <activity android:name=".UserLoginActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>
