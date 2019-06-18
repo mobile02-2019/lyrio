@@ -82,7 +82,7 @@ public class LoginActivity extends AppCompatActivity {
         }else if (!senhaValida(passwordEditText.getEditableText().toString())){
             passwordEditText.setError("senha deve ter entre 6 e 14 caracteres");
         }else{
-            irParaRegistro();
+            irParaHome();
         }
     }
 
@@ -115,7 +115,7 @@ public class LoginActivity extends AppCompatActivity {
 
     //ir para Home  - por enquanto esta indo para registro ate criar a Tela
     private void irParaHome(){
-        Intent intent = new Intent(this, UserCadastroActivity.class);
+        Intent intent = new Intent(this, TabMenu.class);
         startActivity(intent);
     }
     // ir para esqueci a minha senha
