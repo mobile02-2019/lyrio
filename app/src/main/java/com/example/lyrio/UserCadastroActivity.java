@@ -13,6 +13,7 @@ import java.util.regex.Pattern;
 public class UserCadastroActivity extends AppCompatActivity {
 
     public final Pattern textPattern = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$");
+    private String emailRegex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
 
     private TextInputEditText editTextNome;
     private TextInputEditText editTextEmail;
@@ -51,8 +52,10 @@ public class UserCadastroActivity extends AppCompatActivity {
                 editTextConfirmarSenha.setError("As senhas não conferem!");
             } else if (editTextNome.getEditableText().toString().equals("")) {
                 editTextNome.setError("Campo obrigatório!");
-            } else if (editTextEmail.getEditableText().toString().equals("")) {
-                editTextEmail.setError("Campo obrigatório!");
+            } else if(editTextEmail.getEditableText().toString().equals("")){
+                editTextEmail.setError("Campo Obrigatório");
+            } else if (!editTextEmail.getEditableText().toString().matches(emailRegex)) {
+                editTextEmail.setError("O email deve conter @ e .");
             } else if (editTextSenha.getEditableText().toString().equals("")) {
                 editTextSenha.setError("Campo obrigatório!");
             } else if (editTextConfirmarSenha.getEditableText().toString().equals("")) {
@@ -61,24 +64,23 @@ public class UserCadastroActivity extends AppCompatActivity {
                 Snackbar.make(view, "Cadastro realizado com sucesso!", Snackbar.LENGTH_INDEFINITE).setAction("OK", new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-//                        irParaLogin();
+                        irParaLogin();
                     }
                 }).setActionTextColor(getResources().getColor(R.color.azulClaro)).show();
             }
         }else{
-            editTextSenha.setError("A senha deve conter números, letras maiusculas e minusculas ");
+            editTextSenha.setError("A senha deve ter tamanho entre 6 a 14 caracteres contendo números, letras maiusculas e minusculas ");
         }
     }
 
-//    private void irParaLogin() {
-//        Intent intent = new Intent(this, UserLoginActivity.class);
-//        startActivity(intent);
-//
-//    }
+    private void irParaLogin() {
+        Intent intent = new Intent(this, LoginActivity.class);
+      startActivity(intent);
+    }
 
     private boolean senhaValida(String senha) {
         senha = senha.trim();
-        return senha.length() >= 6 && senha.length() < 14 && textPattern.matcher(senha).matches();
+        return senha.length() >= 6 && senha.length() <= 14 && textPattern.matcher(senha).matches();
     }
 
 }

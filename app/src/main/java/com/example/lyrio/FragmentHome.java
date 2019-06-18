@@ -38,6 +38,7 @@ public class FragmentHome extends Fragment {
             }
         });
 
+
         userName = view.findViewById(R.id.txtUserName);
         userStatus = view.findViewById(R.id.txtUserStatus);
 
