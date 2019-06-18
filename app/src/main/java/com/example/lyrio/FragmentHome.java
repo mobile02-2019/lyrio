@@ -29,6 +29,15 @@ public class FragmentHome extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_fragment_home, container, false);
 
+        Button buttonLogarUsuario = view.findViewById(R.id.button_logar_usuario);
+        buttonLogarUsuario.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
         Button buttonCadastrarUsuario = view.findViewById(R.id.button_cadastrar_usuario);
         buttonCadastrarUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
