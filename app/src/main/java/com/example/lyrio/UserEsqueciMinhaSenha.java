@@ -13,7 +13,7 @@ public class UserEsqueciMinhaSenha extends AppCompatActivity {
     public final Pattern textPattern = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$");
     private String mailRegex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
 
-    private String gotEmail = "thiferas@gmail.com";
+    private String gotEmail = "usuario@gmail.com";
     private String gotSenha = "P1poca";
 
     private Button buttonSalvar;
@@ -43,7 +43,7 @@ public class UserEsqueciMinhaSenha extends AppCompatActivity {
         buttonSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                viewTopText.setText("nao testado");
+//                viewTopText.setText("nao testado");
                 confirmarDados();
             }
         });
