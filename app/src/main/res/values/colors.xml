@@ -4,7 +4,9 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="branco">#FFFFFF</color>
-    <color name="cinza">#8492A6</color>
+    <color name="cinzaEscuro">#7C7C7C</color>
+    <color name="cinza">#ADADAD</color>
+    <color name="cinzaClaro">#F1F1F1</color>
     <color name="verde">#2DE5AA</color>
     <color name="azulClaro">#367EC0</color>
     <color name="azulEscuro">#3B48CC</color>

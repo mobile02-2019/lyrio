@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
@@ -8,145 +9,156 @@
     android:background="@drawable/bg_normal">
 
     <android.support.design.card.MaterialCardView
+        android:id="@+id/login_cardView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        app:cardCornerRadius="12dp">
+        android:layout_margin="8dp"
+        app:cardCornerRadius="12dp"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-
+            android:layout_gravity="center"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_marginBottom="32dp"
+                android:layout_height="wrap_content"
+                android:text="@string/user_login"
+                android:id="@+id/txtTop"
+                android:layout_marginStart="64dp"
+                android:layout_marginEnd="64dp"
+                android:textAlignment="center"
+                android:textSize="16sp"/>
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="80dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
-                android:hint="Email"
-
-
-                >
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                app:layout_constraintBottom_toBottomOf="@+id/materialCardView"
+                app:layout_constraintEnd_toEndOf="@+id/materialCardView"
+                app:layout_constraintStart_toStartOf="@+id/materialCardView"
+                app:layout_constraintTop_toTopOf="@+id/materialCardView">
 
                 <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="E-mail"
                     android:id="@+id/emailDigitado"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:inputType="textEmailAddress"/>
+                    android:inputType="textWebEmailAddress"/>
+
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginRight="16dp"
-                android:hint="Senha">
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                app:layout_constraintBottom_toBottomOf="@+id/materialCardView"
+                app:layout_constraintEnd_toEndOf="@+id/materialCardView"
+                app:layout_constraintStart_toStartOf="@+id/materialCardView"
+                app:layout_constraintTop_toTopOf="@+id/materialCardView">
 
                 <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Senha"
                     android:id="@+id/senhaLogin"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:inputType="textPassword"
-                    />
-
-                <TextView
-                    android:id="@+id/registreSe"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
-                    android:text="Registre-se"
-                    android:textAlignment="center"
-
-                    />
-
-                <TextView
-                    android:id="@+id/esqueceuSenha"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="Esqueceu sua senha?"
-                    android:textAlignment="center"
-
-                    />
+                    android:inputType="textPassword"/>
 
             </android.support.design.widget.TextInputLayout>
 
+            <TextView
+                android:id="@+id/esqueceuSenha"
+                android:layout_gravity="right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:textSize="16dp"
+                android:text="Esqueceu sua senha?"
+                android:layout_marginTop="8dp"
+                android:textAlignment="center"/>
 
             <Button
                 android:id="@+id/botaoLogin"
                 android:layout_width="match_parent"
-                android:layout_height="28dp"
-                android:layout_marginLeft="48dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginRight="48dp"
-                android:background="@color/verde"
-                android:elevation="@android:dimen/app_icon_size"
-                android:text="Login"
-                android:textAllCaps="false"
-                android:textColor="@color/branco"
-                android:textSize="16dp" />
+                android:layout_height="48dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
+                android:backgroundTint="@color/verde"
+                android:text="LOGIN"
+                android:textColor="@color/branco" />
 
-            <ProgressBar
-                android:id="@+id/loading"
+            <TextView
+                android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="64dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginBottom="64dp"
-                android:visibility="gone">
+                android:layout_marginTop="16dp"
+                android:text="Ainda não fez seu cadastro?"
+                android:layout_marginStart="64dp"
+                android:layout_marginEnd="64dp"
+                android:textAlignment="center"
+                android:textSize="16sp"/>
 
-            </ProgressBar>
+            <TextView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Clique aqui"
+                android:id="@+id/registreSe"
+                android:layout_marginStart="64dp"
+                android:layout_marginEnd="64dp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textSize="16sp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/cinza"
+                android:layout_marginStart="64dp"
+                android:layout_marginEnd="64dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"
+                />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:text="     -----   OU   -----     "
+                android:layout_marginStart="64dp"
+                android:layout_marginEnd="64dp"
+                android:text="@string/user_login_sociais"
                 android:textAlignment="center"
-                android:textSize="16dp"
-
-
+                android:textSize="16sp"
                 />
 
             <Button
-                android:id="@+id/botaoLoginFacebook"
+                android:layout_marginTop="16dp"
                 android:layout_width="match_parent"
-                android:layout_height="28dp"
-                android:layout_marginLeft="48dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginRight="48dp"
-                android:background="@color/azulClaro"
-                android:elevation="@android:dimen/app_icon_size"
-                android:text="Login com Facebook"
-                android:textAllCaps="false"
+                android:layout_height="48dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:text="login com facebook"
                 android:textColor="@color/branco"
-                android:textSize="16dp" />
-
+                android:backgroundTint="@color/azulClaro"
+                android:id="@+id/botaoLoginFacebook"/>
 
             <Button
                 android:id="@+id/botaoLoginGoogle"
                 android:layout_width="match_parent"
-                android:layout_height="28dp"
-                android:layout_marginLeft="48dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginRight="48dp"
-                android:background="#F3E6FF"
-                android:text="Login com Google"
-                android:textAllCaps="false"
-                android:textSize="16dp" />
+                android:layout_height="48dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:backgroundTint="@color/cinzaClaro"
+                android:text="Login com google"
+                android:textColor="@color/cinzaEscuro" />
 
 
         </LinearLayout>

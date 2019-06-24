@@ -1,9 +1,15 @@
 <resources>
     <string name="app_name">Lyrio</string>
-    <string name="user_esqueci_minha_senha">Olá!\nPara criar uma nova senha, preencha os campos abaixo com atenção:</string>
-    <string name="user_esqueci_minha_senha_lembrete">Lembre-se: sua nova senha deve ter entre 6 e 14 caracteres, sendo composta de letras minúsculas, maiúsculas e números.</string>
+    <string name="user_login">Olá!\nPara fazer login, preencha os campos abaixo:</string>
+    <string name="user_esqueci_minha_senha">Para criar uma nova senha, preencha os campos abaixo com atenção.</string>
+    <string name="user_cadastrar">Para criar o seu novo cadastro, preencha os campos abaixo com atenção.</string>
+    <string name="user_senha_lembrete">** Lembre-se: sua nova senha deve ter entre 6 e 14 caracteres, sendo composta por letras minúsculas, maiúsculas e números **</string>
+    <string name="user_login_sociais">Você também pode fazer login usando suas redes sociais:</string>
 
-    //testingStrings
+    // Dados do vagalume para busca
+    <string name="vagalume_key">52433bd778677b92342a16ddf927e4bf</string>
+
+    // Testing Strings
     <string name="testString">testing %1$s = %2$d done.</string>
 
     <!-- TODO: Remove or change this placeholder text -->

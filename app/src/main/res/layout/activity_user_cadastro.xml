@@ -12,7 +12,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="8dp"
-        app:cardCornerRadius="12dp">
+        app:cardCornerRadius="12dp"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,31 +26,24 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Ola!"
+                android:layout_marginBottom="16dp"
+                android:layout_height="wrap_content"
+                android:text="@string/user_cadastrar"
+                android:id="@+id/txtTop"
                 android:layout_marginStart="64dp"
                 android:layout_marginEnd="64dp"
                 android:textAlignment="center"
-                android:textSize="16dp"/>
+                android:textSize="16sp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textSize="16dp"
-                android:text="Por favor preencha os campos abaixo"
-                android:layout_marginStart="64dp"
-                android:layout_marginEnd="64dp"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="A senha deve ter tamanho entre 6 a 14 caracteres contendo números, letras maiusculas e minusculas"
+                android:text="@string/user_senha_lembrete"
                 android:layout_marginStart="64dp"
                 android:layout_marginEnd="64dp"
                 android:textAlignment="center"
-                android:textSize="16dp"
-                android:layout_marginBottom="32dp"/>
+                android:layout_marginBottom="32dp"
+                android:textSize="16sp"/>
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
@@ -107,8 +104,8 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:background="@color/azulClaro"
-                android:text="Confirmar"
+                android:background="@color/verde"
+                android:text="Salvar"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="32dp"
