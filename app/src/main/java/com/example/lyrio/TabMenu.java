@@ -1,9 +1,14 @@
 package com.example.lyrio;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class TabMenu extends AppCompatActivity {
 
@@ -16,8 +21,8 @@ public class TabMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_tab_menu);
-        tabLayout = (TabLayout) findViewById(R.id.tablayout_id);
-        viewPager = (ViewPager) findViewById(R.id.viewpager_id);
+        tabLayout = findViewById(R.id.tablayout_id);
+        viewPager = findViewById(R.id.viewpager_id);
 
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.AddFragment(new FragmentHome(), "Home");
@@ -34,6 +39,19 @@ public class TabMenu extends AppCompatActivity {
         }
 
         changeView(numeroDoFragment);
+
+
+
+        final Button apertarButton = findViewById(R.id.artista_button_id);
+        apertarButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                irParaArtistas();
+
+            }
+        });
+
+
     }
 
     public void changeView(Integer pageNum){
@@ -42,5 +60,13 @@ public class TabMenu extends AppCompatActivity {
         }else{
             viewPager.setCurrentItem(1);
         }
+    }
+
+
+
+    //intent ir para registro
+    private void irParaArtistas () {
+        Intent intent = new Intent(this, HomeArtistasActivity.class);
+        startActivity(intent);
     }
 }

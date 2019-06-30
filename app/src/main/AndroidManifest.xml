@@ -9,17 +9,20 @@
         android:roundIcon="@mipmap/lyr_new_icon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".TabMenu" />
-        <activity android:name=".UserEsqueciMinhaSenha" />
-        <activity android:name=".UserCadastroActivity" />
-        <activity android:name=".SplashActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".HomeArtistasActivity" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-    </application>
 
-</manifest>
+    <activity android:name=".LoginActivity" />
+    <activity android:name=".TabMenu" />
+    <activity android:name=".UserEsqueciMinhaSenha" />
+    <activity android:name=".UserCadastroActivity" />
+    <activity android:name=".SplashActivity" >
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+    </activity>
+</application>
+
+    </manifest>
