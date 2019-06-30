@@ -7,8 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 
 public class TabMenu extends AppCompatActivity {
 
@@ -66,7 +64,7 @@ public class TabMenu extends AppCompatActivity {
 
     //intent ir para registro
     private void irParaArtistas () {
-        Intent intent = new Intent(this, HomeArtistasActivity.class);
+        Intent intent = new Intent(this, ListaDeArtistasActivity.class);
         startActivity(intent);
     }
 }

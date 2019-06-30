@@ -6,14 +6,17 @@
     android:background="@drawable/bg_normal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeArtistasActivity">
+    android:id="@+id/container_id"
+    tools:context=".ListaDeArtistasActivity">
 
-    <FrameLayout
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/artista_container_superior_id"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="12dp"
-        android:background="@drawable/fundo_branco">
-    </FrameLayout>
+        android:layout_height="138dp"
+        android:layout_margin="8dp"
+        android:background="@drawable/fundo_branco"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></android.support.constraint.ConstraintLayout>
 
 
     <ImageView
@@ -31,7 +34,7 @@
         android:id="@+id/linearLayout3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -43,40 +46,38 @@
             android:layout_width="fill_parent"
             android:layout_height="32dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
             android:layout_weight="1"
             android:background="@drawable/botao_arredondado"
+            android:onClick="irParaListaArtista"
             android:text="Meus Artistas"
-            android:textSize="12sp"
-            android:textColor="@color/branco" />
+            android:textColor="@color/branco"
+            android:textSize="12sp" />
 
         <Button
             android:id="@+id/minha_biblioteca_button_id"
             android:layout_width="fill_parent"
             android:layout_height="32dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="8dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
             android:layout_weight="1"
             android:background="@drawable/botao_vazado"
             android:text="Minha Biblioteca"
+            android:onClick="irParaMinhaBiblioteca"
             android:textColor="@color/azulBotoes"
             android:textSize="12sp" />
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view_id"
+        android:id="@+id/recycler_view_artistas_id"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/fundo_branco"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+        app:layout_constraintTop_toBottomOf="@id/artista_container_superior_id" />
 
 
 </android.support.constraint.ConstraintLayout>

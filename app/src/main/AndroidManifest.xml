@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/lyr_new_icon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".HomeArtistasActivity" />
+        <activity android:name=".ListaDeArtistasActivity" />
 
 
     <activity android:name=".LoginActivity" />
