@@ -30,14 +30,13 @@ public class TabMenu extends AppCompatActivity {
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
 
-        try{
+        try {
             numeroDoFragment = getIntent().getExtras().getInt("NUMERO");
-        }catch (Exception e){
+        } catch (Exception e) {
             numeroDoFragment = null;
         }
 
         changeView(numeroDoFragment);
-
 
 
         final Button apertarButton = findViewById(R.id.artista_button_id);
@@ -49,17 +48,23 @@ public class TabMenu extends AppCompatActivity {
             }
         });
 
+        final Button apertarButton2 = findViewById(R.id.musica_button_id);
+        apertarButton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                irParaMusicas();
 
+            }
+        });
     }
 
-    public void changeView(Integer pageNum){
-        if(pageNum != null){
+    public void changeView(Integer pageNum) {
+        if (pageNum != null) {
             viewPager.setCurrentItem(pageNum);
-        }else{
+        } else {
             viewPager.setCurrentItem(1);
         }
     }
-
 
 
     //intent ir para registro
@@ -67,4 +72,9 @@ public class TabMenu extends AppCompatActivity {
         Intent intent = new Intent(this, ListaDeArtistasActivity.class);
         startActivity(intent);
     }
+    private void irParaMusicas () {
+        Intent intent = new Intent(this, ListaAlbumActivity.class);
+        startActivity(intent);
+    }
 }
+
