@@ -1,4 +1,4 @@
-package com.example.lyrio.interfaces;
+package com.example.lyrio.Interfaces;
 
 import com.example.lyrio.Models.Artista;
 
