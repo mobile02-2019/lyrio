@@ -12,10 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".ListaDeArtistasActivity" />
-<<<<<<< HEAD
-=======
         <activity android:name=".ListaAlbumActivity" />
-        <activity android:name=".LoginActivity" />
+        <activity android:name="Login.LoginActivity" />
         <activity android:name=".Login.LoginActivity"></activity>
         <activity android:name=".TabMenu" />
         <activity android:name=".Login.UserEsqueciMinhaSenha" />
@@ -23,16 +21,6 @@
         <activity android:name=".Login.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
->>>>>>> padronizar_layout
-
-
-    <activity android:name=".LoginActivity" />
-    <activity android:name=".TabMenu" />
-    <activity android:name=".UserEsqueciMinhaSenha" />
-    <activity android:name=".UserCadastroActivity" />
-    <activity android:name=".SplashActivity" >
-    <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
 
         <category android:name="android.intent.category.LAUNCHER" />
     </intent-filter>

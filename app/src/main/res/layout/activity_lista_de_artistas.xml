@@ -16,11 +16,7 @@
         android:layout_margin="8dp"
         android:background="@drawable/fundo_branco"
         app:layout_constraintStart_toStartOf="parent"
-<<<<<<< HEAD
-        app:layout_constraintTop_toTopOf="parent"></android.support.constraint.ConstraintLayout>
-=======
         app:layout_constraintTop_toTopOf="parent"/>
->>>>>>> padronizar_layout
 
 
     <ImageView
@@ -28,19 +24,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center|end"
-<<<<<<< HEAD
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
-        android:src="@drawable/ic_account_circle_black_24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-=======
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:src="@drawable/ic_account_circle_black_24dp"
         app:layout_constraintEnd_toEndOf="@id/artista_container_superior_id"
         app:layout_constraintTop_toTopOf="@id/artista_container_superior_id" />
->>>>>>> padronizar_layout
 
     <LinearLayout
         android:id="@+id/linearLayout3"
@@ -85,10 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-<<<<<<< HEAD
-=======
         android:layout_marginBottom="8dp"
->>>>>>> padronizar_layout
         android:background="@drawable/fundo_branco"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

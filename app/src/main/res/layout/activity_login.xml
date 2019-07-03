@@ -68,28 +68,6 @@
                 app:layout_constraintTop_toTopOf="@+id/materialCardView">
 
                 <android.support.design.widget.TextInputEditText
-<<<<<<< HEAD
-                    android:id="@+id/senhaLogin"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:inputType="textPassword" />
-
-                <TextView
-                    android:id="@+id/registreSe"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
-                    android:text="Registre-se"
-                    android:textAlignment="center"
-
-                    />
-
-                <TextView
-                    android:id="@+id/esqueceuSenha"
-=======
->>>>>>> padronizar_layout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Senha"
