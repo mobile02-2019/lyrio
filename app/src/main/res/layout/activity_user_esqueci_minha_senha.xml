@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserEsqueciMinhaSenha"
+    tools:context=".Login.UserEsqueciMinhaSenha"
     android:background="@drawable/bg_normal">
 
     <android.support.design.card.MaterialCardView
@@ -15,8 +15,6 @@
         android:layout_gravity="center"
         android:layout_margin="8dp"
         app:cardCornerRadius="12dp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp"
         app:layout_constraintBottom_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,13 +28,23 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_marginBottom="32dp"
+                android:layout_marginBottom="16dp"
                 android:layout_height="wrap_content"
                 android:text="@string/user_esqueci_minha_senha"
                 android:id="@+id/txtTop"
                 android:layout_marginStart="64dp"
                 android:layout_marginEnd="64dp"
                 android:textAlignment="center"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/user_senha_lembrete"
+                android:layout_marginStart="64dp"
+                android:layout_marginEnd="64dp"
+                android:textAlignment="center"
+                android:layout_marginBottom="32dp"
                 android:textSize="16sp"/>
 
             <android.support.design.widget.TextInputLayout
@@ -117,15 +125,6 @@
                 android:textColor="@color/branco"
                 android:backgroundTint="@color/azulClaro"
                 android:id="@+id/button_user_esqueci_cancelar"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/user_esqueci_minha_senha_lembrete"
-                android:layout_marginStart="64dp"
-                android:layout_marginEnd="64dp"
-                android:textAlignment="center"
-                android:textSize="16sp"/>
 
         </LinearLayout>
 
