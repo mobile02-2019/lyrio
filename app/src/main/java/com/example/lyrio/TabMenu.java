@@ -5,6 +5,11 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.example.lyrio.Adapters.ViewPagerAdapter;
+import com.example.lyrio.Fregments.FragmentBuscar;
+import com.example.lyrio.Fregments.FragmentHome;
+import com.example.lyrio.Fregments.FragmentNoticias;
+
 public class TabMenu extends AppCompatActivity {
 
     private TabLayout tabLayout;

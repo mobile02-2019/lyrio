@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.lyrio">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/lyr_new_icon"
@@ -9,11 +11,11 @@
         android:roundIcon="@mipmap/lyr_new_icon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".Login.LoginActivity"></activity>
         <activity android:name=".TabMenu" />
-        <activity android:name=".UserEsqueciMinhaSenha" />
-        <activity android:name=".UserCadastroActivity" />
-        <activity android:name=".SplashActivity">
+        <activity android:name=".Login.UserEsqueciMinhaSenha" />
+        <activity android:name=".Login.UserCadastroActivity" />
+        <activity android:name=".Login.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
