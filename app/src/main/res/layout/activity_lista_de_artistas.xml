@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/bg_normal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/container_id"
+    tools:context=".ListaDeArtistasActivity">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/artista_container_superior_id"
+        android:layout_width="match_parent"
+        android:layout_height="138dp"
+        android:layout_margin="8dp"
+        android:background="@drawable/fundo_branco"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/seta_id"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="28dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/seta_left" />
+    </android.support.constraint.ConstraintLayout>
+
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|end"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:src="@drawable/ic_account_circle_black_24dp"
+        app:layout_constraintEnd_toEndOf="@id/artista_container_superior_id"
+        app:layout_constraintTop_toTopOf="@id/artista_container_superior_id" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2">
+
+        <Button
+            android:id="@+id/meus_artistas_button_id"
+            android:layout_width="fill_parent"
+            android:layout_height="32dp"
+            android:layout_marginStart="16dp"
+            android:layout_weight="1"
+            android:background="@drawable/botao_arredondado"
+            android:onClick="irParaListaArtista"
+            android:text="Meus Artistas"
+            android:textColor="@color/branco"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/minha_biblioteca_button_id"
+            android:layout_width="fill_parent"
+            android:layout_height="32dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_weight="1"
+            android:background="@drawable/botao_vazado"
+            android:text="Minha Biblioteca"
+            android:onClick="irParaMinhaBiblioteca"
+            android:textColor="@color/azulBotoes"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view_artistas_id"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/fundo_branco"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/artista_container_superior_id" />
+
+
+</android.support.constraint.ConstraintLayout>
+

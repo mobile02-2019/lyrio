@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".ListaDeArtistasActivity">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:onClick="irParaFragmentArtistaDetalhe"
+            android:id="@+id/detalhe_lista_artista_id">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imagem_circleImageView"
+                android:layout_width="70sp"
+                android:layout_height="70sp"
+                android:src="@drawable/paula_fernandes"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/artista_text_view_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_gravity="center"
+                android:text="Nome do Artista ou Banda"
+                android:textSize="16sp"
+                android:layout_weight="1"
+                android:textColor="@color/preto"
+                app:layout_constraintStart_toEndOf="@+id/imagem_circleImageView"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ic_detalhe_action_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:onClick="irParaFragmentArtistaDetalhe"
+                app:srcCompat="@drawable/ic_action_detalhe" />
+
+
+        </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

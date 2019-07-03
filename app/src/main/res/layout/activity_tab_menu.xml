@@ -8,6 +8,43 @@
     tools:context=".TabMenu"
     android:background="@drawable/bg_normal">
 
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/artista_button_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/azulBotoes"
+            android:fontFamily="@font/bree_serif_regular"
+            android:text="Artista"
+            android:textColor="@color/branco" />
+
+        <Button
+            android:id="@+id/musica_button_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/azulBotoes"
+            android:fontFamily="@font/bree_serif_regular"
+            android:text="Música"
+            android:textColor="@color/branco" />
+
+        <Button
+            android:id="@+id/playlist_button_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/azulBotoes"
+            android:fontFamily="@font/bree_serif_regular"
+            android:text="Playlist"
+            android:textColor="@color/branco" />
+
+    </LinearLayout>
+
     <android.support.v4.view.ViewPager
         android:paddingTop="8dp"
         android:paddingBottom="2dp"
@@ -18,16 +55,16 @@
     </android.support.v4.view.ViewPager>
 
     <android.support.design.widget.TabLayout
+        android:id="@+id/tablayout_id"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:background="#0000"
         app:tabGravity="fill"
-        app:tabMode="fixed"
-        android:id="@+id/tablayout_id"
-        app:tabTextColor="@color/tabTxtColor"
         app:tabIndicatorColor="@color/tabIndicadorColor"
-        app:tabTextAppearance="@style/tab_text_font"
         app:tabIndicatorHeight="5dp"
-        android:background="#0000">
+        app:tabMode="fixed"
+        app:tabTextAppearance="@style/tab_text_font"
+        app:tabTextColor="@color/tabTxtColor">
 
     </android.support.design.widget.TabLayout>
 

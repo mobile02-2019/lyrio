@@ -1,9 +1,12 @@
 package com.example.lyrio;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.lyrio.Adapters.ViewPagerAdapter;
 import com.example.lyrio.Fregments.FragmentBuscar;
@@ -21,8 +24,8 @@ public class TabMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_tab_menu);
-        tabLayout = (TabLayout) findViewById(R.id.tablayout_id);
-        viewPager = (ViewPager) findViewById(R.id.viewpager_id);
+        tabLayout = findViewById(R.id.tablayout_id);
+        viewPager = findViewById(R.id.viewpager_id);
 
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.AddFragment(new FragmentHome(), "Home");
@@ -32,20 +35,55 @@ public class TabMenu extends AppCompatActivity {
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
 
-        try{
+        try {
             numeroDoFragment = getIntent().getExtras().getInt("NUMERO");
-        }catch (Exception e){
+        } catch (Exception e) {
             numeroDoFragment = null;
         }
 
         changeView(numeroDoFragment);
+
+
+        final Button apertarButton = findViewById(R.id.artista_button_id);
+        apertarButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                irParaArtistas();
+
+            }
+        });
+
+        final Button apertarButton2 = findViewById(R.id.musica_button_id);
+        apertarButton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                irParaMusicas();
+
+            }
+        });
     }
 
-    public void changeView(Integer pageNum){
-        if(pageNum != null){
+    public void changeView(Integer pageNum) {
+        if (pageNum != null) {
             viewPager.setCurrentItem(pageNum);
-        }else{
+        } else {
             viewPager.setCurrentItem(1);
         }
     }
+
+
+    //intent ir para registro
+    private void irParaArtistas () {
+        Intent intent = new Intent(this, ListaDeArtistasActivity.class);
+        startActivity(intent);
+    }
+    private void irParaMusicas () {
+        Intent intent = new Intent(this, ListaAlbumActivity.class);
+        startActivity(intent);
+    }
+    private void voltarParaHome () {
+        Intent intent = new Intent(this, ListaAlbumActivity.class);
+        startActivity(intent);
+    }
 }
+

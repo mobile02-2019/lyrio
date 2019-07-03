@@ -12,6 +12,8 @@
     <color name="azulEscuro">#3B48CC</color>
     <color name="tabTxtColor">@color/branco</color>
     <color name="tabIndicadorColor">@color/verde</color>
+    <color name="preto">#000000</color>
+    <color name="azulBotoes">#3683C0</color>
 
 
 </resources>

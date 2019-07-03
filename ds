@@ -1,0 +1,30 @@
+Jorge (8):
+      testando outra branch
+      tela Cadastro
+      Merge branch 'master' of https://github.com/mobile02-2019/lyrio
+      adicionada validação de email e comunicação do login com TabMenu
+      Login com validações
+      Com botão login na fragmentHome e loginActivity atualizado
+      com login direcionando para TabMenu
+      corrigido layout dos botões do fragmentHome
+
+Luciano Oliveira (3):
+      Merge branch 'login_final' of C:\Users\lucia\Desktop\Projeto Lyrio MASTER\lyrio with conflicts.
+      Merge remote-tracking branch 'origin/login_final' into login_final
+      criação da pagina login e logicas, falta integrar ao projeto
+
+Thiago Fogagnoli Costa (5):
+      EsqueciMinhaSenha
+      juntar master
+      mais espaco entre ola e texto
+      tirar barra n
+      merge de login_final na master
+
+jeffLasa (3):
+      Activity Splash e Icone
+      teste
+      tirar teste
+
+mobile02-2019 (1):
+      Initial commit
+
