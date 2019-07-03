@@ -67,8 +67,5 @@ public class ListaAlbumActivity extends AppCompatActivity {
         recyclerView1.setAdapter(musicaAdapter);
         recyclerView1.setLayoutManager(linearLayoutManager1);
 
-
-
-
     }
 }

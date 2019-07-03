@@ -81,9 +81,6 @@ public class TabMenu extends AppCompatActivity {
         Intent intent = new Intent(this, ListaAlbumActivity.class);
         startActivity(intent);
     }
-    private void voltarParaHome () {
-        Intent intent = new Intent(this, ListaAlbumActivity.class);
-        startActivity(intent);
-    }
+
 }
 

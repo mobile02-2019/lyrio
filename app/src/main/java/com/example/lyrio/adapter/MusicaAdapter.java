@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.lyrio.R;
@@ -17,8 +18,7 @@ public class MusicaAdapter extends RecyclerView.Adapter<MusicaAdapter.ViewHolder
 
     private List<Musica> listaMusica = new ArrayList<>();
 
-
-    public MusicaAdapter(List<Musica> listamusica) {
+    public MusicaAdapter(List<Musica> listaMusica) {
         this.listaMusica = listaMusica;
     }
 
@@ -46,17 +46,19 @@ public class MusicaAdapter extends RecyclerView.Adapter<MusicaAdapter.ViewHolder
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         private TextView musicaTextView;
+        private ImageView imagemCapaImageView;
 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
+            imagemCapaImageView= itemView.findViewById(R.id.imagem_album_mini_id);
             musicaTextView = itemView.findViewById(R.id.titulo_musica);
 
         }
 
         public void setupMusica(Musica musica) {
             musicaTextView.setText(musica.getNomeMusica());
+
 
         }
     }
