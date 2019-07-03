@@ -4,10 +4,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import com.example.lyrio.adapter.AlbumAdapter;
-import com.example.lyrio.adapter.MusicaAdapter;
-import com.example.lyrio.model.Album;
-import com.example.lyrio.model.Musica;
+import com.example.lyrio.Adapters.AlbumAdapter;
+import com.example.lyrio.Adapters.MusicaAdapter;
+import com.example.lyrio.Models.Album;
+import com.example.lyrio.Models.Musica;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.example.lyrio.model;
+package com.example.lyrio.Models;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 

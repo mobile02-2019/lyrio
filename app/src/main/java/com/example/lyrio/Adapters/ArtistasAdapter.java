@@ -1,17 +1,15 @@
-package com.example.lyrio.adapter;
+package com.example.lyrio.Adapters;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.lyrio.R;
-import com.example.lyrio.fragments.FragmentListaArtistas;
 import com.example.lyrio.interfaces.ArtistaListener;
-import com.example.lyrio.model.Artista;
+import com.example.lyrio.Models.Artista;
 
 import java.util.ArrayList;
 import java.util.List;

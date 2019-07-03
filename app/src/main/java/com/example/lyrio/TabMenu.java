@@ -9,9 +9,9 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.lyrio.Adapters.ViewPagerAdapter;
-import com.example.lyrio.Fregments.FragmentBuscar;
-import com.example.lyrio.Fregments.FragmentHome;
-import com.example.lyrio.Fregments.FragmentNoticias;
+import com.example.lyrio.Fragments.FragmentBuscar;
+import com.example.lyrio.Fragments.FragmentHome;
+import com.example.lyrio.Fragments.FragmentNoticias;
 
 public class TabMenu extends AppCompatActivity {
 

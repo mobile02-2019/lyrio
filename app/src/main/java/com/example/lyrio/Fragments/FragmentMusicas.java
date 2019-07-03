@@ -1,4 +1,4 @@
-package com.example.lyrio.fragments;
+package com.example.lyrio.Fragments;
 
 
 import android.os.Bundle;
@@ -9,13 +9,14 @@ import android.view.ViewGroup;
 
 import com.example.lyrio.R;
 
+
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentArtistaDetalhes extends Fragment {
+public class FragmentMusicas extends Fragment {
 
 
-    public FragmentArtistaDetalhes() {
+    public FragmentMusicas() {
         // Required empty public constructor
     }
 
@@ -24,7 +25,7 @@ public class FragmentArtistaDetalhes extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fragment_artista_detalhes, container, false);
+        return inflater.inflate(R.layout.fragment_musicas, container, false);
     }
 
 }

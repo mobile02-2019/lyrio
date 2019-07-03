@@ -1,4 +1,4 @@
-package com.example.lyrio.Fregments;
+package com.example.lyrio.Fragments;
 
 
 import android.os.Bundle;

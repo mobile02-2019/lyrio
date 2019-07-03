@@ -1,4 +1,4 @@
-package com.example.lyrio.adapter;
+package com.example.lyrio.Adapters;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.lyrio.R;
-import com.example.lyrio.model.Musica;
+import com.example.lyrio.Models.Musica;
 
 import java.util.ArrayList;
 import java.util.List;
