@@ -34,11 +34,11 @@
             >
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/icone_album_letras_id"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/imagine"
-                android:id="@+id/icone_album_letras_id"
                 android:layout_margin="5dp"
+                android:src="@drawable/john_imagine"
 
                 />
 
