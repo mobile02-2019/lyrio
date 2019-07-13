@@ -13,7 +13,6 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".ListaDeArtistasActivity" />
         <activity android:name=".ListaAlbumActivity" />
-        <activity android:name="Login.LoginActivity" />
         <activity android:name=".Login.LoginActivity"></activity>
         <activity android:name=".TabMenu" />
         <activity android:name=".Login.UserEsqueciMinhaSenha" />
