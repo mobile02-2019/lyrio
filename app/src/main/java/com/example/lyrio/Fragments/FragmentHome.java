@@ -3,18 +3,19 @@ package com.example.lyrio.Fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import com.example.lyrio.Adapters.ArtistaSalvoAdapter;
 import com.example.lyrio.Adapters.MusicaSalvaAdapter;
 import com.example.lyrio.Adapters.NoticiaSalvaAdapter;
-import com.example.lyrio.Models.Artista;
 import com.example.lyrio.Models.ArtistaSalvo;
 import com.example.lyrio.Models.MusicaSalva;
 import com.example.lyrio.Models.NoticiaSalva;
@@ -36,6 +37,7 @@ public class FragmentHome extends Fragment {
     private String gotMail;
     private TextView userName;
     private TextView userStatus;
+    private ImageButton opcoesUsuario;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -69,7 +71,7 @@ public class FragmentHome extends Fragment {
         artistaSalvo.setNomeArtistaSalvo("Paula Fernandes");
         artistaSalvo.setImagemArtistaSalvo("https://static.wixstatic.com/media/c1fcef_47f7144f7185411b82ac6ab7d0e8f1ec~mv2.jpg/v1/fill/w_234,h_234,al_c,q_80,usm_0.66_1.00_0.01/c1fcef_47f7144f7185411b82ac6ab7d0e8f1ec~mv2.webp");
         listaArtistaSalvo.add(artistaSalvo);
-        listaArtistaSalvo.add(artistaSalvo);listaArtistaSalvo.add(artistaSalvo);
+        listaArtistaSalvo.add(artistaSalvo);listaArtistaSalvo.add(artistaSalvo);listaArtistaSalvo.add(artistaSalvo);listaArtistaSalvo.add(artistaSalvo);
 
         ArtistaSalvoAdapter artistaSalvoAdapter = new ArtistaSalvoAdapter(listaArtistaSalvo);
         RecyclerView.LayoutManager layoutManager1 = new LinearLayoutManager(view.getContext(), LinearLayoutManager.HORIZONTAL,false);
@@ -94,6 +96,17 @@ public class FragmentHome extends Fragment {
 
         recyclerView2.setAdapter(noticiaSalvaAdapter);
         recyclerView2.setLayoutManager(layoutManager2);
+
+        opcoesUsuario = view.findViewById(R.id.ome_user_icon_image_button);
+        opcoesUsuario.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PopupMenu popupMenu = new PopupMenu(getActivity(), opcoesUsuario);
+                MenuInflater menuInflater = popupMenu.getMenuInflater();
+                menuInflater.inflate(R.menu.popup_menu, popupMenu.getMenu());
+                popupMenu.show();
+            }
+        });
 
 
         userName = view.findViewById(R.id.txtUserName);
