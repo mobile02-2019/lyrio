@@ -2,14 +2,13 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/artista_salvo_frame_layout"
+    android:id="@+id/noticia_salva_frame_layout"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginStart="18dp"
-    android:layout_marginEnd="8dp">
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="24dp">
 
     <android.support.v7.widget.CardView
-        android:id="@+id/artista_salvo_card_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -17,31 +16,26 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/imagem_artista_salvo_circle_image_view"
+            <ImageView
+                android:id="@+id/imagem_noticia_salva_image_view"
                 android:layout_width="60dp"
-                android:layout_height="62dp"
+                android:layout_height="60dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_launcher_background" />
 
             <TextView
-                android:id="@+id/nome_artista_salvo_text_view"
+                android:id="@+id/titulo_noticia_salva_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="7dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
                 android:text="TextView"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imagem_artista_salvo_circle_image_view" />
-
+                app:layout_constraintStart_toEndOf="@+id/imagem_noticia_salva_image_view"
+                app:layout_constraintTop_toTopOf="parent" />
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
 </FrameLayout>

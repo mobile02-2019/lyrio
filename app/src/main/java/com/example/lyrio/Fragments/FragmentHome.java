@@ -13,9 +13,11 @@ import android.widget.TextView;
 
 import com.example.lyrio.Adapters.ArtistaSalvoAdapter;
 import com.example.lyrio.Adapters.MusicaSalvaAdapter;
+import com.example.lyrio.Adapters.NoticiaSalvaAdapter;
 import com.example.lyrio.Models.Artista;
 import com.example.lyrio.Models.ArtistaSalvo;
 import com.example.lyrio.Models.MusicaSalva;
+import com.example.lyrio.Models.NoticiaSalva;
 import com.example.lyrio.R;
 
 import java.util.ArrayList;
@@ -76,6 +78,23 @@ public class FragmentHome extends Fragment {
 
         recyclerView1.setAdapter(artistaSalvoAdapter);
         recyclerView1.setLayoutManager(layoutManager1);
+
+        List<NoticiaSalva> listaNoticiasSalvas = new ArrayList<>();
+
+        NoticiaSalva noticiaSalva = new NoticiaSalva();
+        noticiaSalva.setTituloNoticiaSalva("Dia do Rock");
+        noticiaSalva.setImagemNoticiaSalva("https://caisdamemoria.files.wordpress.com/2018/07/dia-mundial-do-rock.jpg?w=620");
+        listaNoticiasSalvas.add(noticiaSalva);
+        listaNoticiasSalvas.add(noticiaSalva);listaNoticiasSalvas.add(noticiaSalva);listaNoticiasSalvas.add(noticiaSalva);
+
+        NoticiaSalvaAdapter noticiaSalvaAdapter = new NoticiaSalvaAdapter(listaNoticiasSalvas);
+        RecyclerView.LayoutManager layoutManager2 = new LinearLayoutManager(view.getContext(), LinearLayoutManager.HORIZONTAL, false);
+
+        RecyclerView recyclerView2 = view.findViewById(R.id.noticias_salvas_recycler_view);
+
+        recyclerView2.setAdapter(noticiaSalvaAdapter);
+        recyclerView2.setLayoutManager(layoutManager2);
+
 
         userName = view.findViewById(R.id.txtUserName);
         userStatus = view.findViewById(R.id.txtUserStatus);
