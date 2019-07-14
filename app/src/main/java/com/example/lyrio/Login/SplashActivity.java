@@ -29,5 +29,6 @@ public class SplashActivity extends AppCompatActivity {
     private void irParaUserLoginActivity () {
         Intent intent = new Intent(this, TabMenu.class);
         startActivity(intent);
+        finish();
     }
 }

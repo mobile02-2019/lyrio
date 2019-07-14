@@ -14,6 +14,7 @@
     <color name="tabIndicadorColor">@color/verde</color>
     <color name="preto">#000000</color>
     <color name="azulBotoes">#3683C0</color>
+    <color name="transparente">#00FFFFFF</color>
 
 
 </resources>

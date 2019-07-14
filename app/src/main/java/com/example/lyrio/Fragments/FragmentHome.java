@@ -3,12 +3,15 @@ package com.example.lyrio.Fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 import android.widget.TextView;
@@ -38,6 +41,8 @@ public class FragmentHome extends Fragment {
     private TextView userName;
     private TextView userStatus;
     private ImageButton opcoesUsuario;
+    private TextView verMaisMusica;
+    private TextView verMaisArtistas;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -109,6 +114,15 @@ public class FragmentHome extends Fragment {
         });
 
 
+        verMaisArtistas = view.findViewById(R.id.ver_mais_artistas_salvos_text_view);
+        verMaisArtistas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                irParaMeusArtistas();
+            }
+        });
+
+
         userName = view.findViewById(R.id.txtUserName);
         userStatus = view.findViewById(R.id.txtUserStatus);
 
@@ -126,6 +140,17 @@ public class FragmentHome extends Fragment {
             userStatus.setText("Sem notificações");
         }
 
+
         return view;
     }
+
+    private void irParaMeusArtistas() {
+        FragmentManager manager = getFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.viewpager_id, new FragmentListaArtistasSalvos());
+        transaction.commit();
+    }
+
+
+
 }
