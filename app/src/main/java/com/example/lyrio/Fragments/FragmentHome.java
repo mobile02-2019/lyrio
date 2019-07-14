@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 import android.widget.TextView;
@@ -23,6 +22,9 @@ import com.example.lyrio.Models.ArtistaSalvo;
 import com.example.lyrio.Models.MusicaSalva;
 import com.example.lyrio.Models.NoticiaSalva;
 import com.example.lyrio.R;
+import com.example.lyrio.interfaces.ArtistaSalvoListener;
+import com.example.lyrio.interfaces.MusicaSalvaListener;
+import com.example.lyrio.interfaces.NoticiaSalvaListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +33,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentHome extends Fragment {
+public class FragmentHome extends Fragment implements ArtistaSalvoListener, MusicaSalvaListener, NoticiaSalvaListener {
 
     public FragmentHome() {
         // Required empty public constructor
@@ -43,6 +45,7 @@ public class FragmentHome extends Fragment {
     private ImageButton opcoesUsuario;
     private TextView verMaisMusica;
     private TextView verMaisArtistas;
+    private TextView verMaisNoticias;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -62,7 +65,7 @@ public class FragmentHome extends Fragment {
         listaMusicaSalva.add(musicaSalva1);
         listaMusicaSalva.add(musicaSalva);listaMusicaSalva.add(musicaSalva1);listaMusicaSalva.add(musicaSalva);listaMusicaSalva.add(musicaSalva1);
 
-        MusicaSalvaAdapter musicaSalvaAdapter = new MusicaSalvaAdapter(listaMusicaSalva);
+        MusicaSalvaAdapter musicaSalvaAdapter = new MusicaSalvaAdapter(listaMusicaSalva, this);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(view.getContext(),LinearLayoutManager.HORIZONTAL,false);
 
         RecyclerView recyclerView = view.findViewById(R.id.musica_salva_recycler_view);
@@ -78,7 +81,7 @@ public class FragmentHome extends Fragment {
         listaArtistaSalvo.add(artistaSalvo);
         listaArtistaSalvo.add(artistaSalvo);listaArtistaSalvo.add(artistaSalvo);listaArtistaSalvo.add(artistaSalvo);listaArtistaSalvo.add(artistaSalvo);
 
-        ArtistaSalvoAdapter artistaSalvoAdapter = new ArtistaSalvoAdapter(listaArtistaSalvo);
+        ArtistaSalvoAdapter artistaSalvoAdapter = new ArtistaSalvoAdapter(listaArtistaSalvo, this);
         RecyclerView.LayoutManager layoutManager1 = new LinearLayoutManager(view.getContext(), LinearLayoutManager.HORIZONTAL,false);
 
         RecyclerView recyclerView1 = view.findViewById(R.id.artistas_salvos_recycler_view);
@@ -94,7 +97,7 @@ public class FragmentHome extends Fragment {
         listaNoticiasSalvas.add(noticiaSalva);
         listaNoticiasSalvas.add(noticiaSalva);listaNoticiasSalvas.add(noticiaSalva);listaNoticiasSalvas.add(noticiaSalva);
 
-        NoticiaSalvaAdapter noticiaSalvaAdapter = new NoticiaSalvaAdapter(listaNoticiasSalvas);
+        NoticiaSalvaAdapter noticiaSalvaAdapter = new NoticiaSalvaAdapter(listaNoticiasSalvas, this);
         RecyclerView.LayoutManager layoutManager2 = new LinearLayoutManager(view.getContext(), LinearLayoutManager.HORIZONTAL, false);
 
         RecyclerView recyclerView2 = view.findViewById(R.id.noticias_salvas_recycler_view);
@@ -122,6 +125,21 @@ public class FragmentHome extends Fragment {
             }
         });
 
+        verMaisMusica = view.findViewById(R.id.ver_mais_musica_text_view);
+        verMaisMusica.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                irParaMinhasMusicas();
+            }
+        });
+        verMaisNoticias = view.findViewById(R.id.ver_mais_noticias_salvas_text_view);
+        verMaisNoticias.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                irParaMinhasNoticias();
+            }
+        });
+
 
         userName = view.findViewById(R.id.txtUserName);
         userStatus = view.findViewById(R.id.txtUserStatus);
@@ -143,7 +161,21 @@ public class FragmentHome extends Fragment {
 
         return view;
     }
-
+    //metodo que direciona para o Fragment que contem a lista de noticias salvas mas não esta direcionando direito
+    private void irParaMinhasNoticias() {
+        FragmentManager manager = getFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.viewpager_id, new FragmentListaNoticiasSalvas());
+        transaction.commit();
+    }
+    //metodo que direciona para o Fragment que contem a lista de musicas salvas mas não esta direcionando direito
+    private void irParaMinhasMusicas() {
+        FragmentManager manager = getFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.viewpager_id, new FragmentListaMusicasSalvas());
+        transaction.commit();
+    }
+    //metodo que direciona para o Fragment que contem a lista de artistas salvas mas não esta direcionando direito
     private void irParaMeusArtistas() {
         FragmentManager manager = getFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
@@ -151,6 +183,20 @@ public class FragmentHome extends Fragment {
         transaction.commit();
     }
 
+    
+    @Override
+    public void onArtistaClicado(ArtistaSalvo artistaSalvo) {
 
 
+    }
+
+    @Override
+    public void onMusicaSalvaClicado(MusicaSalva musicaSalva) {
+
+    }
+
+    @Override
+    public void onNoticiaSlvaClicado(NoticiaSalva noticiaSalva) {
+
+    }
 }

@@ -10,15 +10,18 @@ import android.widget.TextView;
 
 import com.example.lyrio.Models.NoticiaSalva;
 import com.example.lyrio.R;
+import com.example.lyrio.interfaces.ListaNoticiasSalvasListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 public class ListaNoticiasSalvasAdapter extends RecyclerView.Adapter<ListaNoticiasSalvasAdapter.ViewHolder> {
     private List<NoticiaSalva> listaNoticiasSalvas;
+    private ListaNoticiasSalvasListener listaNoticiasSalvasListener;
 
-    public ListaNoticiasSalvasAdapter(List<NoticiaSalva> listaNoticiasSalvas) {
+    public ListaNoticiasSalvasAdapter(List<NoticiaSalva> listaNoticiasSalvas, ListaNoticiasSalvasListener listaNoticiasSalvasListener) {
         this.listaNoticiasSalvas = listaNoticiasSalvas;
+        this.listaNoticiasSalvasListener = listaNoticiasSalvasListener;
     }
 
 
@@ -31,8 +34,15 @@ public class ListaNoticiasSalvasAdapter extends RecyclerView.Adapter<ListaNotici
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        NoticiaSalva noticiaSalva = new NoticiaSalva();
+        final NoticiaSalva noticiaSalva = new NoticiaSalva();
         viewHolder.setupNoticiaSalva(noticiaSalva);
+
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listaNoticiasSalvasListener.onListaNoticiasSalvasClicado(noticiaSalva);
+            }
+        });
 
     }
 

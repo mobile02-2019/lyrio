@@ -1,6 +1,8 @@
 package com.example.lyrio.Models;
 
-public class NoticiaSalva {
+import java.io.Serializable;
+
+public class NoticiaSalva implements Serializable {
     private String tituloNoticiaSalva;
     private String imagemNoticiaSalva;
 

@@ -10,10 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.lyrio.Adapters.ListaNoticiasSalvasAdapter;
-import com.example.lyrio.Adapters.NoticiaSalvaAdapter;
-import com.example.lyrio.ListaAlbumActivity;
 import com.example.lyrio.Models.NoticiaSalva;
 import com.example.lyrio.R;
+import com.example.lyrio.interfaces.ListaNoticiasSalvasListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +20,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentListaNoticiasSalvas extends Fragment {
+public class FragmentListaNoticiasSalvas extends Fragment implements ListaNoticiasSalvasListener {
 
 
     public FragmentListaNoticiasSalvas() {
@@ -42,7 +41,7 @@ public class FragmentListaNoticiasSalvas extends Fragment {
         listaNoticiasSalvas.add(noticiaSalva);
         listaNoticiasSalvas.add(noticiaSalva);listaNoticiasSalvas.add(noticiaSalva);listaNoticiasSalvas.add(noticiaSalva);
 
-        ListaNoticiasSalvasAdapter listaNoticiasSalvasAdapter = new ListaNoticiasSalvasAdapter(listaNoticiasSalvas);
+        ListaNoticiasSalvasAdapter listaNoticiasSalvasAdapter = new ListaNoticiasSalvasAdapter(listaNoticiasSalvas, this);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         RecyclerView recyclerView = view.findViewById(R.id.lista_minhas_noticias_recycler_view);
         recyclerView.setAdapter(listaNoticiasSalvasAdapter);
@@ -51,4 +50,8 @@ public class FragmentListaNoticiasSalvas extends Fragment {
         return view;
     }
 
+    @Override
+    public void onListaNoticiasSalvasClicado(NoticiaSalva noticiaSalva) {
+
+    }
 }

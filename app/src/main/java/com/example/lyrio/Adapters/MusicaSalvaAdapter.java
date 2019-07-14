@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.lyrio.Models.MusicaSalva;
 import com.example.lyrio.R;
+import com.example.lyrio.interfaces.MusicaSalvaListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -17,9 +18,11 @@ import java.util.List;
 public class MusicaSalvaAdapter extends RecyclerView.Adapter<MusicaSalvaAdapter.ViewHolder> {
 
     private List<MusicaSalva> listaMusicaSalva;
+    private MusicaSalvaListener musicaSalvaListener;
 
-    public MusicaSalvaAdapter(List<MusicaSalva> listaMusicaSalva) {
+    public MusicaSalvaAdapter(List<MusicaSalva> listaMusicaSalva, MusicaSalvaListener musicaSalvaListener) {
         this.listaMusicaSalva = listaMusicaSalva;
+        this.musicaSalvaListener = musicaSalvaListener;
     }
 
 
@@ -32,8 +35,15 @@ public class MusicaSalvaAdapter extends RecyclerView.Adapter<MusicaSalvaAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        MusicaSalva musicaSalva = listaMusicaSalva.get(i);
+        final MusicaSalva musicaSalva = listaMusicaSalva.get(i);
         viewHolder.setupMusicaSalva(musicaSalva);
+
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                musicaSalvaListener.onMusicaSalvaClicado(musicaSalva);
+            }
+        });
 
     }
 

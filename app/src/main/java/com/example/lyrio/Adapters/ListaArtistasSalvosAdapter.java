@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.example.lyrio.Models.ArtistaSalvo;
 import com.example.lyrio.R;
+import com.example.lyrio.interfaces.ListaArtistasSalvosListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -17,9 +18,11 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ListaArtistasSalvosAdapter extends RecyclerView.Adapter<ListaArtistasSalvosAdapter.ViewHolder> {
     private List<ArtistaSalvo> listaArtistasSalvos;
+    private ListaArtistasSalvosListener listaArtistasSalvosListener;
 
-    public ListaArtistasSalvosAdapter(List<ArtistaSalvo> listaArtistasSalvos) {
+    public ListaArtistasSalvosAdapter(List<ArtistaSalvo> listaArtistasSalvos, ListaArtistasSalvosListener listaArtistasSalvosListener) {
         this.listaArtistasSalvos = listaArtistasSalvos;
+        this.listaArtistasSalvosListener = listaArtistasSalvosListener;
     }
 
     @NonNull
@@ -32,8 +35,15 @@ public class ListaArtistasSalvosAdapter extends RecyclerView.Adapter<ListaArtist
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        ArtistaSalvo artistaSalvo = listaArtistasSalvos.get(i);
+        final ArtistaSalvo artistaSalvo = listaArtistasSalvos.get(i);
         viewHolder.setupArtistaSalvo(artistaSalvo);
+
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listaArtistasSalvosListener.onListaArtistasSalvosClicado(artistaSalvo);
+            }
+        });
 
     }
 

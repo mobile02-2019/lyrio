@@ -9,11 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.lyrio.Adapters.ListaArtistasSalvosAdapter;
 import com.example.lyrio.Adapters.ListaMusicasSalvasAdapter;
-import com.example.lyrio.Adapters.MusicaSalvaAdapter;
 import com.example.lyrio.Models.MusicaSalva;
 import com.example.lyrio.R;
+import com.example.lyrio.interfaces.ListaMusicasSalvasListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +20,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentListaMusicasSalvas extends Fragment {
+public class FragmentListaMusicasSalvas extends Fragment implements ListaMusicasSalvasListener {
 
 
     public FragmentListaMusicasSalvas() {
@@ -44,7 +43,7 @@ public class FragmentListaMusicasSalvas extends Fragment {
         listaMusicaSalva.add(musicaSalva1);listaMusicaSalva.add(musicaSalva1);listaMusicaSalva.add(musicaSalva1);listaMusicaSalva.add(musicaSalva1);
         listaMusicaSalva.add(musicaSalva1);listaMusicaSalva.add(musicaSalva1);listaMusicaSalva.add(musicaSalva1);listaMusicaSalva.add(musicaSalva1);
 
-        ListaMusicasSalvasAdapter listaMusicasSalvasAdapter = new ListaMusicasSalvasAdapter(listaMusicaSalva);
+        ListaMusicasSalvasAdapter listaMusicasSalvasAdapter = new ListaMusicasSalvasAdapter(listaMusicaSalva, this);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         RecyclerView recyclerView = view.findViewById(R.id.lista_minhas_musicas_recycler_view);
         recyclerView.setAdapter(listaMusicasSalvasAdapter);
@@ -53,4 +52,8 @@ public class FragmentListaMusicasSalvas extends Fragment {
         return view;
     }
 
+    @Override
+    public void onListaMusicasSalvasClicado(MusicaSalva musicaSalva) {
+
+    }
 }

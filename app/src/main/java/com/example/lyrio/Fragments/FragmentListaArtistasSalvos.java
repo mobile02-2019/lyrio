@@ -4,16 +4,15 @@ package com.example.lyrio.Fragments;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.lyrio.Adapters.ArtistaSalvoAdapter;
 import com.example.lyrio.Adapters.ListaArtistasSalvosAdapter;
 import com.example.lyrio.Models.ArtistaSalvo;
 import com.example.lyrio.R;
+import com.example.lyrio.interfaces.ListaArtistasSalvosListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +20,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentListaArtistasSalvos extends Fragment {
+public class FragmentListaArtistasSalvos extends Fragment implements ListaArtistasSalvosListener {
 
 
     public FragmentListaArtistasSalvos() {
@@ -42,7 +41,7 @@ public class FragmentListaArtistasSalvos extends Fragment {
         listaArtistaSalvo.add(artistaSalvo);
         listaArtistaSalvo.add(artistaSalvo);listaArtistaSalvo.add(artistaSalvo);listaArtistaSalvo.add(artistaSalvo);listaArtistaSalvo.add(artistaSalvo);
 
-        ListaArtistasSalvosAdapter listaArtistasSalvosAdapter = new ListaArtistasSalvosAdapter(listaArtistaSalvo);
+        ListaArtistasSalvosAdapter listaArtistasSalvosAdapter = new ListaArtistasSalvosAdapter(listaArtistaSalvo, this);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(), 3);
         RecyclerView recyclerView = view.findViewById(R.id.lista_meus_artistas_recycler_view);
         recyclerView.setAdapter(listaArtistasSalvosAdapter);
@@ -50,4 +49,8 @@ public class FragmentListaArtistasSalvos extends Fragment {
         return view;
 }
 
+    @Override
+    public void onListaArtistasSalvosClicado(ArtistaSalvo artistaSalvo) {
+
+    }
 }
