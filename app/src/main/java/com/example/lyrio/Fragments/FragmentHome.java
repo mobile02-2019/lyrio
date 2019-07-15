@@ -183,7 +183,7 @@ public class FragmentHome extends Fragment implements ArtistaSalvoListener, Musi
         transaction.commit();
     }
 
-    
+
     @Override
     public void onArtistaClicado(ArtistaSalvo artistaSalvo) {
 
