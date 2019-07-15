@@ -3,6 +3,7 @@ package com.example.lyrio;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.TextView;
 
@@ -28,7 +29,12 @@ public class HotspotAbrirLink extends AppCompatActivity {
         String url = bundle.getString("HOTSPOT_LINK");
 
 //        hotspotText.setText(url);
+
+        WebSettings ws = webView.getSettings();
+        ws.setJavaScriptEnabled(true);
+        ws.setSupportZoom(false);
         webView.loadUrl(url);
+
     }
 
 
