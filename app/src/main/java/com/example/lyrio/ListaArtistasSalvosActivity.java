@@ -1,37 +1,28 @@
-package com.example.lyrio.Fragments;
+package com.example.lyrio;
 
-
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import com.example.lyrio.Adapters.ListaArtistasSalvosAdapter;
 import com.example.lyrio.Models.ArtistaSalvo;
-import com.example.lyrio.R;
 import com.example.lyrio.interfaces.ListaArtistasSalvosListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class FragmentListaArtistasSalvos extends Fragment implements ListaArtistasSalvosListener {
+public class ListaArtistasSalvosActivity extends AppCompatActivity implements ListaArtistasSalvosListener {
 
-
-    public FragmentListaArtistasSalvos() {
-        // Required empty public constructor
-    }
-
+    private ImageButton backButton;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_fragment_lista_artistas_salvos, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_lista_artistas_salvos);
 
         List<ArtistaSalvo> listaArtistaSalvo = new ArrayList<>();
 
@@ -42,12 +33,27 @@ public class FragmentListaArtistasSalvos extends Fragment implements ListaArtist
         listaArtistaSalvo.add(artistaSalvo);listaArtistaSalvo.add(artistaSalvo);listaArtistaSalvo.add(artistaSalvo);listaArtistaSalvo.add(artistaSalvo);
 
         ListaArtistasSalvosAdapter listaArtistasSalvosAdapter = new ListaArtistasSalvosAdapter(listaArtistaSalvo, this);
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(), 3);
-        RecyclerView recyclerView = view.findViewById(R.id.lista_meus_artistas_recycler_view);
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 3);
+        RecyclerView recyclerView = findViewById(R.id.lista_artistas_salvos_recycler_view_id);
         recyclerView.setAdapter(listaArtistasSalvosAdapter);
         recyclerView.setLayoutManager(layoutManager);
-        return view;
-}
+
+        backButton = findViewById(R.id.back_button_meus_artistas_image_button);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                voltarParaHome();
+            }
+        });
+    }
+
+    private void voltarParaHome() {
+        if (getFragmentManager().getBackStackEntryCount() == 0) {
+            this.finish();
+        } else {
+            getFragmentManager().popBackStack();
+        }
+    }
 
     @Override
     public void onListaArtistasSalvosClicado(ArtistaSalvo artistaSalvo) {

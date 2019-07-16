@@ -34,7 +34,7 @@ public class ListaNoticiasSalvasAdapter extends RecyclerView.Adapter<ListaNotici
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        final NoticiaSalva noticiaSalva = new NoticiaSalva();
+        final NoticiaSalva noticiaSalva = listaNoticiasSalvas.get(i);
         viewHolder.setupNoticiaSalva(noticiaSalva);
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -57,8 +57,8 @@ public class ListaNoticiasSalvasAdapter extends RecyclerView.Adapter<ListaNotici
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imagemNoticiaSalvaImageView = itemView.findViewById(R.id.imagem_lista_noticia_salva_image_view);
-            tituloNoticiaSalvaTextView = itemView.findViewById(R.id.titulo_lista_noticia_salva_text_view);
+            imagemNoticiaSalvaImageView = itemView.findViewById(R.id.imagem_lista_noticia_salva_image_view_id);
+            tituloNoticiaSalvaTextView = itemView.findViewById(R.id.titulo_lista_noticia_salva_text_view_id);
         }
         public void setupNoticiaSalva(NoticiaSalva noticiaSalva){
             tituloNoticiaSalvaTextView.setText(noticiaSalva.getTituloNoticiaSalva());

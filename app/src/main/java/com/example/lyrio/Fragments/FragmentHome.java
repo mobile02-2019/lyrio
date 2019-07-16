@@ -1,6 +1,7 @@
 package com.example.lyrio.Fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -18,11 +19,15 @@ import android.widget.TextView;
 import com.example.lyrio.Adapters.ArtistaSalvoAdapter;
 import com.example.lyrio.Adapters.MusicaSalvaAdapter;
 import com.example.lyrio.Adapters.NoticiaSalvaAdapter;
+import com.example.lyrio.ListaArtistasSalvosActivity;
+import com.example.lyrio.ListaMusicaSalvaActivity;
+import com.example.lyrio.ListaNoticiaSalvaActivity;
 import com.example.lyrio.Models.ArtistaSalvo;
 import com.example.lyrio.Models.MusicaSalva;
 import com.example.lyrio.Models.NoticiaSalva;
 import com.example.lyrio.R;
 import com.example.lyrio.interfaces.ArtistaSalvoListener;
+import com.example.lyrio.interfaces.ListaArtistasSalvosListener;
 import com.example.lyrio.interfaces.MusicaSalvaListener;
 import com.example.lyrio.interfaces.NoticiaSalvaListener;
 
@@ -163,24 +168,20 @@ public class FragmentHome extends Fragment implements ArtistaSalvoListener, Musi
     }
     //metodo que direciona para o Fragment que contem a lista de noticias salvas mas não esta direcionando direito
     private void irParaMinhasNoticias() {
-        FragmentManager manager = getFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.viewpager_id, new FragmentListaNoticiasSalvas());
-        transaction.commit();
+        Intent intent = new Intent(getContext(), ListaNoticiaSalvaActivity.class);
+        startActivity(intent);
     }
     //metodo que direciona para o Fragment que contem a lista de musicas salvas mas não esta direcionando direito
     private void irParaMinhasMusicas() {
-        FragmentManager manager = getFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.viewpager_id, new FragmentListaMusicasSalvas());
-        transaction.commit();
+        Intent intent = new Intent(getContext(), ListaMusicaSalvaActivity.class);
+
+        startActivity(intent);
     }
     //metodo que direciona para o Fragment que contem a lista de artistas salvas mas não esta direcionando direito
     private void irParaMeusArtistas() {
-        FragmentManager manager = getFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.viewpager_id, new FragmentListaArtistasSalvos());
-        transaction.commit();
+        Intent intent = new Intent(getContext(), ListaArtistasSalvosActivity.class);
+
+        startActivity(intent);
     }
 
 
