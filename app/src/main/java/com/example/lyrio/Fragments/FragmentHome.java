@@ -25,6 +25,7 @@ import com.example.lyrio.ListaNoticiaSalvaActivity;
 import com.example.lyrio.Models.ArtistaSalvo;
 import com.example.lyrio.Models.MusicaSalva;
 import com.example.lyrio.Models.NoticiaSalva;
+import com.example.lyrio.PaginaArtistaActivity;
 import com.example.lyrio.R;
 import com.example.lyrio.interfaces.ArtistaSalvoListener;
 import com.example.lyrio.interfaces.ListaArtistasSalvosListener;
@@ -180,13 +181,19 @@ public class FragmentHome extends Fragment implements ArtistaSalvoListener, Musi
     //metodo que direciona para o Fragment que contem a lista de artistas salvas mas não esta direcionando direito
     private void irParaMeusArtistas() {
         Intent intent = new Intent(getContext(), ListaArtistasSalvosActivity.class);
-
         startActivity(intent);
     }
 
 
     @Override
     public void onArtistaClicado(ArtistaSalvo artistaSalvo) {
+        Intent intent = new Intent(getContext(), PaginaArtistaActivity.class);
+
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("ARTISTA", artistaSalvo);
+        intent.putExtras(bundle);
+        startActivity(intent);
+
 
 
     }

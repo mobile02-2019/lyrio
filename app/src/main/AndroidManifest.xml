@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/lyr_new_icon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".ListaNoticiaSalvaActivity"></activity>
+        <activity android:name=".PaginaArtistaActivity"></activity>
+        <activity android:name=".ListaNoticiaSalvaActivity" />
         <activity android:name=".ListaArtistasSalvosActivity" />
         <activity android:name=".ListaMusicaSalvaActivity" />
         <activity android:name=".ListaDeArtistasActivity" />

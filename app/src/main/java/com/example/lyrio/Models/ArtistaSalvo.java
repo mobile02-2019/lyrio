@@ -1,10 +1,29 @@
 package com.example.lyrio.Models;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class ArtistaSalvo implements Serializable {
     private String nomeArtistaSalvo;
     private String imagemArtistaSalvo;
+    private List<Musica> listaDeMusicas;
+    private List<Album> listaDeAlbuns;
+
+    public List<Musica> getListaDeMusicas() {
+        return listaDeMusicas;
+    }
+
+    public void setListaDeMusicas(List<Musica> listaDeMusicas) {
+        this.listaDeMusicas = listaDeMusicas;
+    }
+
+    public List<Album> getListaDeAlbuns() {
+        return listaDeAlbuns;
+    }
+
+    public void setListaDeAlbuns(List<Album> listaDeAlbuns) {
+        this.listaDeAlbuns = listaDeAlbuns;
+    }
 
     public String getNomeArtistaSalvo() {
         return nomeArtistaSalvo;
