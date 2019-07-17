@@ -18,6 +18,7 @@
         <activity android:name=".ListaMusicaSalvaActivity" />
         <activity android:name=".ListaDeArtistasActivity" />
         <activity android:name=".ListaAlbumActivity" />
+        <activity android:name=".HotspotAbrirLink"/>
 
         <activity android:name=".Login.LoginActivity" />
         <activity android:name=".TabMenu" />
