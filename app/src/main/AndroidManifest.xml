@@ -11,12 +11,14 @@
         android:roundIcon="@mipmap/lyr_new_icon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
         <activity android:name=".PaginaArtistaActivity"></activity>
         <activity android:name=".ListaNoticiaSalvaActivity" />
         <activity android:name=".ListaArtistasSalvosActivity" />
         <activity android:name=".ListaMusicaSalvaActivity" />
         <activity android:name=".ListaDeArtistasActivity" />
         <activity android:name=".ListaAlbumActivity" />
+
         <activity android:name=".Login.LoginActivity" />
         <activity android:name=".TabMenu" />
         <activity android:name=".Login.UserEsqueciMinhaSenha" />
