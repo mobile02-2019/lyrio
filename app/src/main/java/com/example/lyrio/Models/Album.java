@@ -8,6 +8,7 @@ public class Album {
 
 
     private ImageView capaAlbum;
+    private String nomeAlbum;
     private List<Musica> listaDeMusicaAlbum;
 
     public List<Musica> getListaDeMusicaAlbum() {
@@ -19,7 +20,13 @@ public class Album {
     }
 
 
+    public String getNomeAlbum() {
+        return nomeAlbum;
+    }
 
+    public void setNomeAlbum(String nomeAlbum) {
+        this.nomeAlbum = nomeAlbum;
+    }
 
     public Album(int capaAlbum) {
 

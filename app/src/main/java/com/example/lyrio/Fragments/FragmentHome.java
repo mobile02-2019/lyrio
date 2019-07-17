@@ -10,6 +10,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
@@ -19,9 +20,11 @@ import android.widget.TextView;
 import com.example.lyrio.Adapters.ArtistaSalvoAdapter;
 import com.example.lyrio.Adapters.MusicaSalvaAdapter;
 import com.example.lyrio.Adapters.NoticiaSalvaAdapter;
+import com.example.lyrio.HotspotAbrirLink;
 import com.example.lyrio.ListaArtistasSalvosActivity;
 import com.example.lyrio.ListaMusicaSalvaActivity;
 import com.example.lyrio.ListaNoticiaSalvaActivity;
+import com.example.lyrio.Login.LoginActivity;
 import com.example.lyrio.Models.ArtistaSalvo;
 import com.example.lyrio.Models.MusicaSalva;
 import com.example.lyrio.Models.NoticiaSalva;
@@ -39,7 +42,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentHome extends Fragment implements ArtistaSalvoListener, MusicaSalvaListener, NoticiaSalvaListener {
+public class FragmentHome extends Fragment implements ArtistaSalvoListener, MusicaSalvaListener, NoticiaSalvaListener, PopupMenu.OnMenuItemClickListener {
 
     public FragmentHome() {
         // Required empty public constructor
@@ -119,6 +122,7 @@ public class FragmentHome extends Fragment implements ArtistaSalvoListener, Musi
                 MenuInflater menuInflater = popupMenu.getMenuInflater();
                 menuInflater.inflate(R.menu.popup_menu, popupMenu.getMenu());
                 popupMenu.show();
+                popupMenu.setOnMenuItemClickListener(FragmentHome.this);
             }
         });
 
@@ -206,5 +210,18 @@ public class FragmentHome extends Fragment implements ArtistaSalvoListener, Musi
     @Override
     public void onNoticiaSlvaClicado(NoticiaSalva noticiaSalva) {
 
+
+    }
+
+    @Override
+    public boolean onMenuItemClick(MenuItem menuItem) {
+        switch ((menuItem.getItemId())){
+            case R.id.item_sair:
+                Intent intent = new Intent(getContext(), LoginActivity.class);
+                startActivity(intent);
+                return true;
+            default:
+                return false;
+        }
     }
 }
