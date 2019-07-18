@@ -28,6 +28,7 @@ import com.example.lyrio.Login.LoginActivity;
 import com.example.lyrio.Models.ArtistaSalvo;
 import com.example.lyrio.Models.MusicaSalva;
 import com.example.lyrio.Models.NoticiaSalva;
+import com.example.lyrio.NoticiaActivity;
 import com.example.lyrio.PaginaArtistaActivity;
 import com.example.lyrio.R;
 import com.example.lyrio.interfaces.ArtistaSalvoListener;
@@ -208,7 +209,9 @@ public class FragmentHome extends Fragment implements ArtistaSalvoListener, Musi
     }
 
     @Override
-    public void onNoticiaSlvaClicado(NoticiaSalva noticiaSalva) {
+    public void onNoticiaSalvaClicado(NoticiaSalva noticiaSalva) {
+        Intent intent = new Intent(getContext(), NoticiaActivity.class);
+        startActivity(intent);
 
 
     }

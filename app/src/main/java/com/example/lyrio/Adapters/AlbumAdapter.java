@@ -10,6 +10,7 @@ import android.widget.ImageView;
 
 import com.example.lyrio.R;
 import com.example.lyrio.Models.Album;
+import com.example.lyrio.interfaces.AlbumListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,13 +21,13 @@ import java.util.List;
 
     public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> {
 
-        private List<Album> listaAlbum = new ArrayList<>();
+        private List<Album> listaAlbum;
+        private AlbumListener albumListener;
 
 
-
-        public AlbumAdapter(List<Album> listaAlbum) {
+        public AlbumAdapter(List<Album> listaAlbum, AlbumListener albumListener) {
             this.listaAlbum = listaAlbum;
-
+            this.albumListener = albumListener;
         }
 
         @NonNull
@@ -41,8 +42,15 @@ import java.util.List;
         @Override
         public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
 
-            Album album = listaAlbum.get(i);
+            final Album album = listaAlbum.get(i);
             viewHolder.setupAlbum(album);
+
+            viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    albumListener.onAlbumClicado(album);
+                }
+            });
 
         }
 

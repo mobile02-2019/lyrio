@@ -13,10 +13,10 @@ import android.widget.Toast;
 
 import com.example.lyrio.Adapters.AlbumAdapter;
 import com.example.lyrio.Adapters.ListaMusicasSalvasAdapter;
-import com.example.lyrio.Adapters.MusicaSalvaAdapter;
 import com.example.lyrio.Models.Album;
 import com.example.lyrio.Models.ArtistaSalvo;
 import com.example.lyrio.Models.MusicaSalva;
+import com.example.lyrio.interfaces.AlbumListener;
 import com.example.lyrio.interfaces.ListaMusicasSalvasListener;
 import com.squareup.picasso.Picasso;
 
@@ -25,7 +25,7 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class PaginaArtistaActivity extends AppCompatActivity implements ListaMusicasSalvasListener {
+public class PaginaArtistaActivity extends AppCompatActivity implements ListaMusicasSalvasListener, AlbumListener {
 
     private CircleImageView imagemArtistaImageView;
     private TextView nomeArtistaTextView;
@@ -94,7 +94,7 @@ public class PaginaArtistaActivity extends AppCompatActivity implements ListaMus
         Album album4 = new Album(R.drawable.u2);
         listaAlbum.add(album4);
 
-        AlbumAdapter albumAdapter = new AlbumAdapter(listaAlbum);
+        AlbumAdapter albumAdapter = new AlbumAdapter(listaAlbum, this);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false);
 
@@ -114,5 +114,11 @@ public class PaginaArtistaActivity extends AppCompatActivity implements ListaMus
     @Override
     public void onListaMusicasSalvasClicado(MusicaSalva musicaSalva) {
 
+    }
+
+    @Override
+    public void onAlbumClicado(Album album) {
+        Intent intent = new Intent(this, ListaAlbumActivity.class);
+        startActivity(intent);
     }
 }

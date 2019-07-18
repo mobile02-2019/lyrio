@@ -39,7 +39,7 @@ public class NoticiaSalvaAdapter extends RecyclerView.Adapter<NoticiaSalvaAdapte
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                noticiaSalvaListener.onNoticiaSlvaClicado(noticiaSalva);
+                noticiaSalvaListener.onNoticiaSalvaClicado(noticiaSalva);
             }
         });
     }
