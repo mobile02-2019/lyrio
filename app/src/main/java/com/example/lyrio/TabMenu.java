@@ -42,24 +42,27 @@ public class TabMenu extends AppCompatActivity {
         changeView(numeroDoFragment);
 
 
-        final Button apertarButton = findViewById(R.id.artista_button_id);
-        apertarButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                irParaArtistas();
-
-            }
-        });
 
 
-        final Button apertarButton2 = findViewById(R.id.musica_button_id);
-        apertarButton2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                irParaMusicas();
+        //DESATIVAR MENU DO TOPO
 
-            }
-        });
+//        final Button apertarButton = findViewById(R.id.artista_button_id);
+//        apertarButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                irParaArtistas();
+//            }
+//        });
+//
+//
+//        final Button apertarButton2 = findViewById(R.id.musica_button_id);
+//        apertarButton2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                irParaMusicas();
+//
+//            }
+//        });
 
     }
 
@@ -71,16 +74,18 @@ public class TabMenu extends AppCompatActivity {
         }
     }
 
-    //intent ir para registro
-    private void irParaArtistas () {
-        Intent intent = new Intent(this, ListaDeArtistasActivity.class);
-        startActivity(intent);
-    }
+    //DESATIVAR MENU DO TOPO
 
-    private void irParaMusicas () {
-        Intent intent = new Intent(this, ListaAlbumActivity.class);
-        startActivity(intent);
-    }
+//    //intent ir para registro
+//    private void irParaArtistas () {
+//        Intent intent = new Intent(this, ListaDeArtistasActivity.class);
+//        startActivity(intent);
+//    }
+//
+//    private void irParaMusicas () {
+//        Intent intent = new Intent(this, ListaAlbumActivity.class);
+//        startActivity(intent);
+//    }
 
 }
 
