@@ -87,7 +87,7 @@ public class FragmentConfiguracoes extends Fragment {
             }
         });
 
-    } // não to achando esse erro
+    } // não to achando esse erro ???
 
 
     private void fecharApp() {
