@@ -2,12 +2,14 @@ package com.example.lyrio.Models;
 
 import android.widget.ImageView;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Album {
+public class Album implements Serializable {
 
 
     private ImageView capaAlbum;
+    private String nomeAlbum;
     private List<Musica> listaDeMusicaAlbum;
 
     public List<Musica> getListaDeMusicaAlbum() {
@@ -19,7 +21,13 @@ public class Album {
     }
 
 
+    public String getNomeAlbum() {
+        return nomeAlbum;
+    }
 
+    public void setNomeAlbum(String nomeAlbum) {
+        this.nomeAlbum = nomeAlbum;
+    }
 
     public Album(int capaAlbum) {
 
