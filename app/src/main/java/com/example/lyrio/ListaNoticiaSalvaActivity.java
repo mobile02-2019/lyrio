@@ -24,14 +24,22 @@ public class ListaNoticiaSalvaActivity extends AppCompatActivity implements List
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_noticia_salva);
 
+        //Conteudo fakenews
         List<NoticiaSalva> listaNoticiasSalvas = new ArrayList<>();
-
         NoticiaSalva noticiaSalva = new NoticiaSalva();
         noticiaSalva.setTituloNoticiaSalva("Dia do Rock");
         noticiaSalva.setImagemNoticiaSalva("https://caisdamemoria.files.wordpress.com/2018/07/dia-mundial-do-rock.jpg?w=620");
         listaNoticiasSalvas.add(noticiaSalva);
-        listaNoticiasSalvas.add(noticiaSalva);listaNoticiasSalvas.add(noticiaSalva);listaNoticiasSalvas.add(noticiaSalva);
+        listaNoticiasSalvas.add(noticiaSalva);
+        listaNoticiasSalvas.add(noticiaSalva);
+        listaNoticiasSalvas.add(noticiaSalva);
+        listaNoticiasSalvas.add(noticiaSalva);
+        listaNoticiasSalvas.add(noticiaSalva);
+        listaNoticiasSalvas.add(noticiaSalva);
+        listaNoticiasSalvas.add(noticiaSalva);
+        listaNoticiasSalvas.add(noticiaSalva);
 
+        //Recycler fakenews
         ListaNoticiasSalvasAdapter listaNoticiasSalvasAdapter = new ListaNoticiasSalvasAdapter(listaNoticiasSalvas,this);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         RecyclerView recyclerView = findViewById(R.id.lista_minhas_noticias_salvas_recycler_view_id);

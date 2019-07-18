@@ -14,11 +14,9 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 import android.widget.TextView;
-
 import com.example.lyrio.Adapters.ArtistaSalvoAdapter;
 import com.example.lyrio.Adapters.MusicaSalvaAdapter;
 import com.example.lyrio.Adapters.NoticiaSalvaAdapter;
-import com.example.lyrio.HotspotAbrirLink;
 import com.example.lyrio.ListaArtistasSalvosActivity;
 import com.example.lyrio.ListaMusicaSalvaActivity;
 import com.example.lyrio.ListaNoticiaSalvaActivity;
@@ -40,7 +38,10 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentHome extends Fragment implements ArtistaSalvoListener, MusicaSalvaListener, NoticiaSalvaListener, PopupMenu.OnMenuItemClickListener {
+public class FragmentHome extends Fragment implements ArtistaSalvoListener,
+        MusicaSalvaListener,
+        NoticiaSalvaListener,
+        PopupMenu.OnMenuItemClickListener {
 
     public FragmentHome() {
         // Required empty public constructor
@@ -59,58 +60,75 @@ public class FragmentHome extends Fragment implements ArtistaSalvoListener, Musi
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_fragment_home, container, false);
 
-        List<MusicaSalva> listaMusicaSalva = new ArrayList<>();
 
+        //Conteudo musica salva
+        List<MusicaSalva> listaMusicaSalva = new ArrayList<>();
         MusicaSalva musicaSalva = new MusicaSalva();
         musicaSalva.setNomeMusicaSalva("Passaro de Fogo");
         musicaSalva.setImagemMusicaSalva("https://upload.wikimedia.org/wikipedia/pt/a/a5/P%C3%A1ssaro_de_Fogo.jpg");
         listaMusicaSalva.add(musicaSalva);
-
         MusicaSalva musicaSalva1 = new MusicaSalva();
         musicaSalva1.setNomeMusicaSalva("Chuva chover");
         musicaSalva1.setImagemMusicaSalva("https://upload.wikimedia.org/wikipedia/pt/a/a5/P%C3%A1ssaro_de_Fogo.jpg");
         listaMusicaSalva.add(musicaSalva1);
-        listaMusicaSalva.add(musicaSalva);listaMusicaSalva.add(musicaSalva1);listaMusicaSalva.add(musicaSalva);listaMusicaSalva.add(musicaSalva1);
+        listaMusicaSalva.add(musicaSalva);
+        listaMusicaSalva.add(musicaSalva1);
+        listaMusicaSalva.add(musicaSalva);
+        listaMusicaSalva.add(musicaSalva1);
 
+        //Recycler musica salva
         MusicaSalvaAdapter musicaSalvaAdapter = new MusicaSalvaAdapter(listaMusicaSalva, this);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(view.getContext(),LinearLayoutManager.HORIZONTAL,false);
-
         RecyclerView recyclerView = view.findViewById(R.id.musica_salva_recycler_view);
-
         recyclerView.setAdapter((musicaSalvaAdapter));
         recyclerView.setLayoutManager(layoutManager);
 
-        List<ArtistaSalvo> listaArtistaSalvo = new ArrayList<>();
 
+        //Conteudo artista salvo
+        List<ArtistaSalvo> listaArtistaSalvo = new ArrayList<>();
         ArtistaSalvo artistaSalvo = new ArtistaSalvo();
         artistaSalvo.setNomeArtistaSalvo("Paula Fernandes");
         artistaSalvo.setImagemArtistaSalvo("https://static.wixstatic.com/media/c1fcef_47f7144f7185411b82ac6ab7d0e8f1ec~mv2.jpg/v1/fill/w_234,h_234,al_c,q_80,usm_0.66_1.00_0.01/c1fcef_47f7144f7185411b82ac6ab7d0e8f1ec~mv2.webp");
         listaArtistaSalvo.add(artistaSalvo);
-        listaArtistaSalvo.add(artistaSalvo);listaArtistaSalvo.add(artistaSalvo);listaArtistaSalvo.add(artistaSalvo);listaArtistaSalvo.add(artistaSalvo);
+        listaArtistaSalvo.add(artistaSalvo);
+        listaArtistaSalvo.add(artistaSalvo);
+        listaArtistaSalvo.add(artistaSalvo);
+        listaArtistaSalvo.add(artistaSalvo);
+        listaArtistaSalvo.add(artistaSalvo);
+        listaArtistaSalvo.add(artistaSalvo);
+        listaArtistaSalvo.add(artistaSalvo);
+        listaArtistaSalvo.add(artistaSalvo);
 
+        //Recycler artista salvo
         ArtistaSalvoAdapter artistaSalvoAdapter = new ArtistaSalvoAdapter(listaArtistaSalvo, this);
         RecyclerView.LayoutManager layoutManager1 = new LinearLayoutManager(view.getContext(), LinearLayoutManager.HORIZONTAL,false);
-
         RecyclerView recyclerView1 = view.findViewById(R.id.artistas_salvos_recycler_view);
-
         recyclerView1.setAdapter(artistaSalvoAdapter);
         recyclerView1.setLayoutManager(layoutManager1);
 
-        List<NoticiaSalva> listaNoticiasSalvas = new ArrayList<>();
 
+        //Conteudo lista noticias
+        List<NoticiaSalva> listaNoticiasSalvas = new ArrayList<>();
         NoticiaSalva noticiaSalva = new NoticiaSalva();
-        noticiaSalva.setTituloNoticiaSalva("Dia do Rock");
+        noticiaSalva.setTituloNoticiaSalva("Dia do Rock!");
         noticiaSalva.setImagemNoticiaSalva("https://caisdamemoria.files.wordpress.com/2018/07/dia-mundial-do-rock.jpg?w=620");
         listaNoticiasSalvas.add(noticiaSalva);
-        listaNoticiasSalvas.add(noticiaSalva);listaNoticiasSalvas.add(noticiaSalva);listaNoticiasSalvas.add(noticiaSalva);
+        listaNoticiasSalvas.add(noticiaSalva);
+        listaNoticiasSalvas.add(noticiaSalva);
+        listaNoticiasSalvas.add(noticiaSalva);
+        listaNoticiasSalvas.add(noticiaSalva);
+        listaNoticiasSalvas.add(noticiaSalva);
+        listaNoticiasSalvas.add(noticiaSalva);
+        listaNoticiasSalvas.add(noticiaSalva);
+        listaNoticiasSalvas.add(noticiaSalva);
 
+        //Recycler noticias
         NoticiaSalvaAdapter noticiaSalvaAdapter = new NoticiaSalvaAdapter(listaNoticiasSalvas, this);
         RecyclerView.LayoutManager layoutManager2 = new LinearLayoutManager(view.getContext(), LinearLayoutManager.HORIZONTAL, false);
-
         RecyclerView recyclerView2 = view.findViewById(R.id.noticias_salvas_recycler_view);
-
         recyclerView2.setAdapter(noticiaSalvaAdapter);
         recyclerView2.setLayoutManager(layoutManager2);
+
 
         opcoesUsuario = view.findViewById(R.id.home_user_icon_image_button);
         opcoesUsuario.setOnClickListener(new View.OnClickListener() {
@@ -140,6 +158,7 @@ public class FragmentHome extends Fragment implements ArtistaSalvoListener, Musi
                 irParaMinhasMusicas();
             }
         });
+
         verMaisNoticias = view.findViewById(R.id.ver_mais_noticias_salvas_text_view);
         verMaisNoticias.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -209,8 +228,6 @@ public class FragmentHome extends Fragment implements ArtistaSalvoListener, Musi
     public void onNoticiaSalvaClicado(NoticiaSalva noticiaSalva) {
         Intent intent = new Intent(getContext(), NoticiaActivity.class);
         startActivity(intent);
-
-
     }
 
     @Override

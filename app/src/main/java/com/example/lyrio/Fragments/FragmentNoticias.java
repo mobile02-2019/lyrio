@@ -14,9 +14,8 @@ import android.view.ViewGroup;
 import com.example.lyrio.Adapters.HotspotAdapter;
 import com.example.lyrio.Api.VagalumeHotspotApi;
 import com.example.lyrio.HotspotAbrirLink;
-import com.example.lyrio.Login.UserCadastroActivity;
 import com.example.lyrio.Models.Hotspot;
-import com.example.lyrio.Models.VagalumeHotspot;
+import com.example.lyrio.Api.BaseVagalume.VagalumeHotspot;
 import com.example.lyrio.R;
 import com.example.lyrio.interfaces.HotspotListener;
 

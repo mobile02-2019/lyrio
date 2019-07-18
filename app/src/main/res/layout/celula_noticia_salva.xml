@@ -18,7 +18,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:cardCornerRadius="12dp">
+            app:cardCornerRadius="6dp">
 
             <ImageView
                 android:id="@+id/imagem_noticia_salva_image_view"
