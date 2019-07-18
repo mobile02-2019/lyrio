@@ -4,8 +4,6 @@ package com.example.lyrio.Fragments;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -28,7 +26,6 @@ import com.example.lyrio.Models.NoticiaSalva;
 import com.example.lyrio.PaginaArtistaActivity;
 import com.example.lyrio.R;
 import com.example.lyrio.interfaces.ArtistaSalvoListener;
-import com.example.lyrio.interfaces.ListaArtistasSalvosListener;
 import com.example.lyrio.interfaces.MusicaSalvaListener;
 import com.example.lyrio.interfaces.NoticiaSalvaListener;
 
@@ -111,7 +108,7 @@ public class FragmentHome extends Fragment implements ArtistaSalvoListener, Musi
         recyclerView2.setAdapter(noticiaSalvaAdapter);
         recyclerView2.setLayoutManager(layoutManager2);
 
-        opcoesUsuario = view.findViewById(R.id.ome_user_icon_image_button);
+        opcoesUsuario = view.findViewById(R.id.home_user_icon_image_button);
         opcoesUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
