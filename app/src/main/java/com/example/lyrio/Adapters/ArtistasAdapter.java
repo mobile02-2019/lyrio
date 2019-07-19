@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.example.lyrio.R;
 import com.example.lyrio.interfaces.ArtistaListener;
-import com.example.lyrio.Models.Artista;
+import com.example.lyrio.model.Artista;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +18,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ArtistasAdapter extends RecyclerView.Adapter<ArtistasAdapter.ViewHolder> {
 
-    private List<Artista>listaDeArtistas = new ArrayList<>();
+    private List<Artista> listaDeArtistas = new ArrayList<>();
     private ArtistaListener artistaListener;
 
     public ArtistasAdapter(List<Artista> listaDeArtistas, ArtistaListener artistaListener) {
@@ -26,7 +26,9 @@ public class ArtistasAdapter extends RecyclerView.Adapter<ArtistasAdapter.ViewHo
         this.artistaListener = artistaListener;
     }
 
-    public ArtistasAdapter(List<Artista> listaDeArtistas) { this.listaDeArtistas=listaDeArtistas; }
+    public ArtistasAdapter(List<Artista> listaDeArtistas) {
+        this.listaDeArtistas = listaDeArtistas;
+    }
 
     @NonNull
     @Override
@@ -55,12 +57,12 @@ public class ArtistasAdapter extends RecyclerView.Adapter<ArtistasAdapter.ViewHo
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            artistaTextView=itemView.findViewById(R.id.artista_text_view_id);
-            imagemArtistaImageView=itemView.findViewById(R.id.imagem_circleImageView);
+            artistaTextView = itemView.findViewById(R.id.artista_text_view_id);
+            imagemArtistaImageView = itemView.findViewById(R.id.imagem_circleImageView);
 
         }
 
-        public void setupArtistas (Artista artista){
+        public void setupArtistas(Artista artista) {
             artistaTextView.setText(artista.getArtista());
         }
     }

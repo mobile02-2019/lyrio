@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.example.lyrio.Adapters.ArtistaSalvoAdapter;
 import com.example.lyrio.Adapters.MusicaSalvaAdapter;
 import com.example.lyrio.Adapters.NoticiaSalvaAdapter;
+import com.example.lyrio.ConfiguracoesActivity;
 import com.example.lyrio.ListaArtistasSalvosActivity;
 import com.example.lyrio.ListaMusicaSalvaActivity;
 import com.example.lyrio.ListaNoticiaSalvaActivity;
@@ -237,6 +238,10 @@ public class FragmentHome extends Fragment implements ArtistaSalvoListener,
             case R.id.item_sair:
                 Intent intent = new Intent(getContext(), LoginActivity.class);
                 startActivity(intent);
+                return true;
+            case R.id.item_editar_perfil:
+                Intent intent02 = new Intent(getContext(), ConfiguracoesActivity.class);
+                startActivity(intent02);
                 return true;
             default:
                 return false;

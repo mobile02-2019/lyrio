@@ -67,7 +67,10 @@ public class PaginaArtistaActivity extends AppCompatActivity implements ListaMus
         MusicaSalva musicaSalva = new MusicaSalva();
         musicaSalva.setNomeMusicaSalva("Passaro de Fogo");
         musicaSalva.setImagemMusicaSalva("https://upload.wikimedia.org/wikipedia/pt/a/a5/P%C3%A1ssaro_de_Fogo.jpg");
-        listaMusicaSalva.add(musicaSalva);listaMusicaSalva.add(musicaSalva);listaMusicaSalva.add(musicaSalva);listaMusicaSalva.add(musicaSalva);
+        listaMusicaSalva.add(musicaSalva);
+        listaMusicaSalva.add(musicaSalva);
+        listaMusicaSalva.add(musicaSalva);
+        listaMusicaSalva.add(musicaSalva);
 
         MusicaSalva musicaSalva1 = new MusicaSalva();
         musicaSalva1.setNomeMusicaSalva("Chuva chover");
