@@ -1,4 +1,4 @@
-package com.example.lyrio.Models;
+package com.example.lyrio;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

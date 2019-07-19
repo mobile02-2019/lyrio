@@ -21,6 +21,7 @@
         <activity android:name=".VagalumeAbrirLink" />
         <activity android:name=".Login.LoginActivity" />
         <activity android:name=".TabMenu" />
+        <activity android:name=".TelaLetras"/>
         <activity android:name=".Login.UserEsqueciMinhaSenha" />
         <activity android:name=".Login.UserCadastroActivity" />
         <activity android:name=".Login.SplashActivity">
