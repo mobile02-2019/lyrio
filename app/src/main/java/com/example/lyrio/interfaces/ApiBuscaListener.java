@@ -1,9 +1,9 @@
 package com.example.lyrio.interfaces;
 
-import com.example.lyrio.Api.BaseVagalume.ApiArtista;
+import com.example.lyrio.Api.BaseVagalume.ApiItem;
 
 public interface ApiBuscaListener {
 
-    void onApiBuscarClicado(ApiArtista apiArtista);
+    void onApiBuscarClicado(ApiItem apiItem);
 
 }

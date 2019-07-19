@@ -1,5 +1,7 @@
 package com.example.lyrio.Api.BaseVagalume;
 
+import android.support.annotation.StringRes;
+
 public class ApiItem {
     private String id;
     private String desc;
@@ -8,6 +10,33 @@ public class ApiItem {
     private String year;
     private String title;
     private String band;
+    private String campoTop;
+    private String campoBottom;
+    private String imgUrl;
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
+    public String getCampoTop() {
+        return campoTop;
+    }
+
+    public void setCampoTop(String campoTop) {
+        this.campoTop = campoTop;
+    }
+
+    public String getCampoBottom() {
+        return campoBottom;
+    }
+
+    public void setCampoBottom(String campoBottom) {
+        this.campoBottom = campoBottom;
+    }
 
     public String getId() {
         return id;

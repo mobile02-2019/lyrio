@@ -59,8 +59,8 @@ public class MusicaSalvaAdapter extends RecyclerView.Adapter<MusicaSalvaAdapter.
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            nomeMusicaSalvaTextView = itemView.findViewById(R.id.nome_musica_salva_text_view);
-            imagemMusicaSalvaImageView = itemView.findViewById(R.id.imagem_lista_artista_salvos_circle_image_view_id);
+            nomeMusicaSalvaTextView = itemView.findViewById(R.id.busca_campo_top);
+            imagemMusicaSalvaImageView = itemView.findViewById(R.id.busca_img_artista);
 
         }
         public void setupMusicaSalva(MusicaSalva musicaSalva){

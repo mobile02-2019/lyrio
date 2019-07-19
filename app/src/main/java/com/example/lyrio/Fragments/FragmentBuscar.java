@@ -1,8 +1,11 @@
 package com.example.lyrio.Fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,12 +14,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.lyrio.Adapters.BuscaAdapter;
+import com.example.lyrio.Api.BaseVagalume.ApiItem;
 import com.example.lyrio.Api.BaseVagalume.ApiResponse;
 import com.example.lyrio.Api.BaseVagalume.VagalumeBusca;
 import com.example.lyrio.Api.VagalumeBuscaApi;
-import com.example.lyrio.Api.BaseVagalume.ApiArtista;
+import com.example.lyrio.VagalumeAbrirLink;
 import com.example.lyrio.R;
 import com.example.lyrio.interfaces.ApiBuscaListener;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -31,10 +38,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class FragmentBuscar extends Fragment implements ApiBuscaListener {
 
     private static final String TAG = "VAGALUME";
+//    private ArrayList<ApiItem> listaTemApi = new ArrayList<>();
     private Retrofit retrofit;
     private EditText userInputBusca;
     private TextView retornoBusca;
     private Button botaoBuscar;
+    private RecyclerView recyclerView;
+    private BuscaAdapter buscaAdapter;
 
     public FragmentBuscar() {
         // Required empty public constructor
@@ -53,15 +63,22 @@ public class FragmentBuscar extends Fragment implements ApiBuscaListener {
                 .build();
 
         userInputBusca = view.findViewById(R.id.buscar_campo_de_busca);
-        retornoBusca = view.findViewById(R.id.buscar_temp_textview);
+//        retornoBusca = view.findViewById(R.id.buscar_temp_textview);
         botaoBuscar = view.findViewById(R.id.buscar_botao_busca);
 
         botaoBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                buscaAdapter.removerTudo();
                 fazerBusca(userInputBusca.getText().toString(), "ambos", 5);
             }
         });
+
+        recyclerView = view.findViewById(R.id.buscar_recycler);
+        buscaAdapter = new BuscaAdapter(this.getActivity(), this); // "this" adicionado por causa do Glide
+        recyclerView.setAdapter(buscaAdapter);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.getActivity());
+        recyclerView.setLayoutManager(layoutManager);
 
         return view;
     }
@@ -97,27 +114,52 @@ public class FragmentBuscar extends Fragment implements ApiBuscaListener {
                     int qtdResult = buscaResponse.getDocs().size();
                     String gotResult = "";
 
+                    ArrayList<ApiItem> listaDeArtistas = new ArrayList<>();
+                    ArrayList<ApiItem> listaDeMusicas = new ArrayList<>();
+
                     if(qtdResult>0){
                         for(int i=0; i<qtdResult; i++){
 
                             String bandName = buscaResponse.getDocs().get(i).getBand();
                             String songTitle = buscaResponse.getDocs().get(i).getTitle();
+                            String pgUrl = buscaResponse.getDocs().get(i).getUrl();
+                            ApiItem curApiItem = new ApiItem();
 
                             if(bandName != null && songTitle != null){
+
+                                // Logar em txt
                                 gotResult = gotResult+"MÚSICA - "+bandName+" - "+songTitle+"\n";
+
+                                // Adicionar ao Recycler
+                                curApiItem.setBand(bandName);
+                                curApiItem.setCampoTop(songTitle);
+                                curApiItem.setCampoBottom(bandName);
+                                curApiItem.setUrl(pgUrl);
+                                listaDeMusicas.add(curApiItem);
+                                Log.i(TAG, " Musica API: " +curApiItem.getCampoTop());
+
                             } else if(bandName != null && songTitle == null){
+
+                                // Printar txt
                                 gotResult = gotResult+"ARTISTA - "+bandName+"\n";
+
+                                // Adicionar ao Recycler
+                                curApiItem.setBand(bandName);
+                                curApiItem.setCampoTop(bandName);
+                                curApiItem.setCampoBottom("Ver músicas");
+                                curApiItem.setUrl(pgUrl);
+                                listaDeArtistas.add(curApiItem);
+                                Log.i(TAG, " Artista API: " +curApiItem.getCampoTop());
                             }
                         }
+
                     }
 
-                    if(gotResult.equals("")){
-                        retornoBusca.setText("Não encontramos...");
-                    }else{
-                        retornoBusca.setText(gotResult);
-                    }
+                    Log.i(TAG, " Tamanho Lista Artistas: " +listaDeArtistas.size());
+                    Log.i(TAG, " Tamanho Lista Musicas: " +listaDeMusicas.size());
 
-//                    Log.i(TAG, " Título: " +buscaResponse.getDocs().get(0).getTitle());
+                    listaDeArtistas.addAll(listaDeMusicas);
+                    buscaAdapter.adicionarListaDeApiItems(listaDeArtistas);
 
                 }else {Log.e(TAG, " onResponse: "+response.errorBody());}
             }
@@ -128,10 +170,19 @@ public class FragmentBuscar extends Fragment implements ApiBuscaListener {
     }
 
 
-
-
     @Override
-    public void onApiBuscarClicado(ApiArtista apiArtista) {
+    public void onApiBuscarClicado(ApiItem apiItem) {
+        String url = apiItem.getUrl();
+//        String[] urlSplit = url.split("/");
+        url = "https://www.vagalume.com.br"+url;
 
+        Intent intent = new Intent(getActivity(), VagalumeAbrirLink.class);
+        Bundle bundle = new Bundle();
+
+        // Para poder adicionar ao bundle, a classe tem que implementar "Serializable"
+        bundle.putString("HOTSPOT_LINK", url);
+        intent.putExtras(bundle);
+
+        startActivity(intent);
     }
 }

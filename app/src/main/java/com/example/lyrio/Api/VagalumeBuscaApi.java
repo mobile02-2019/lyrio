@@ -1,7 +1,5 @@
 package com.example.lyrio.Api;
 
-import android.support.annotation.StringRes;
-
 import com.example.lyrio.Api.BaseVagalume.VagalumeBusca;
 
 import retrofit2.Call;

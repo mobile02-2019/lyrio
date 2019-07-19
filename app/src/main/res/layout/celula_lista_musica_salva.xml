@@ -9,7 +9,7 @@
             android:layout_height="match_parent">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/imagem_lista_artista_salvos_circle_image_view_id"
+                android:id="@+id/busca_img_artista"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:layout_marginStart="8dp"
@@ -31,7 +31,7 @@
                 <!--app:srcCompat="@drawable/ic_launcher_background" />-->
 
             <TextView
-                android:id="@+id/nome_musica_salva_text_view"
+                android:id="@+id/busca_campo_top"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
@@ -40,19 +40,19 @@
                 android:text="Nome da Música"
                 android:textStyle="bold"
                 android:textSize="16dp"
-                app:layout_constraintStart_toEndOf="@+id/imagem_lista_artista_salvos_circle_image_view_id"
+                app:layout_constraintStart_toEndOf="@+id/busca_img_artista"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/nome_artista_musica_salva_text_view"
+                android:id="@+id/busca_campo_bottom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginBottom="8dp"
                 android:text="Nome do Artista"
                 android:textSize="14dp"
-                app:layout_constraintStart_toEndOf="@+id/imagem_lista_artista_salvos_circle_image_view_id"
-                app:layout_constraintTop_toBottomOf="@id/nome_musica_salva_text_view" />
+                app:layout_constraintStart_toEndOf="@+id/busca_img_artista"
+                app:layout_constraintTop_toBottomOf="@id/busca_campo_top" />
             
             <View
                 android:layout_width="match_parent"
