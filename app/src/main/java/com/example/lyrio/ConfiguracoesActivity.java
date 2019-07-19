@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.lyrio.Fragments.FragmentHome;
 import com.example.lyrio.Login.LoginActivity;
@@ -16,6 +17,8 @@ public class ConfiguracoesActivity extends AppCompatActivity {
 
     private ImageView setaVoltar;
     private Button logoutButton;
+    private TextView configuracoes;
+    private TextView infosPessoais;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +27,11 @@ public class ConfiguracoesActivity extends AppCompatActivity {
 
         setaVoltar = findViewById(R.id.voltar_imageView);
         logoutButton = findViewById(R.id.logout_button);
+        configuracoes = findViewById(R.id.configuracoes);
+        infosPessoais = findViewById(R.id.informacoes_textView);
+
+        infosPessoais.setText("Informações Pessoais");
+        configuracoes.setText("Configurações");
 
         setaVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
