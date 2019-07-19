@@ -33,24 +33,24 @@ public class ConfiguracoesActivity extends AppCompatActivity {
         });
 
 
-//        logoutButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                AlertDialog.Builder alert = new AlertDialog.Builder(this)
-//                        .setTitle("ATENÇÃO")
-//                        .setMessage("Deseja realmente fazer LogOut no APP?")
-//                        .setPositiveButton("SIM", new DialogInterface.OnClickListener() {
-//                            @Override
-//                            public void onClick(DialogInterface dialogInterface, int i) {
-//                                fecharApp();
-//                            }
-//                        })
-//                        .setNegativeButton("NÂO", null);
-//                alert.create();
-//                alert.show();
-//            }
-//        });
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                AlertDialog.Builder alert = new AlertDialog.Builder(ConfiguracoesActivity.this)
+                        .setTitle("ATENÇÃO")
+                        .setMessage("Deseja realmente fazer LogOut no APP?")
+                        .setPositiveButton("SIM", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                fecharApp();
+                            }
+                        })
+                        .setNegativeButton("NÂO", null);
+                alert.create();
+                alert.show();
+            }
+        });
     }
 
     private void fecharApp() {

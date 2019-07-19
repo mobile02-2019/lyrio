@@ -71,7 +71,7 @@ public class ListaMusicaSalvaActivity extends AppCompatActivity implements Lista
 
     @Override
     public void onListaMusicasSalvasClicado(MusicaSalva musicaSalva) {
-        Intent intent = new Intent();
+        Intent intent = new Intent(this, TelaLetras.class);
         startActivity(intent);
     }
 }

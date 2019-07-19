@@ -9,7 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.example.lyrio.Adapters.ArtistasAdapter;
-import com.example.lyrio.model.Artista;
+import com.example.lyrio.Models.Artista;
 
 import java.util.ArrayList;
 import java.util.List;
