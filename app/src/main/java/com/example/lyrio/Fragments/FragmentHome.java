@@ -27,6 +27,7 @@ import com.example.lyrio.Models.NoticiaSalva;
 import com.example.lyrio.NoticiaActivity;
 import com.example.lyrio.PaginaArtistaActivity;
 import com.example.lyrio.R;
+import com.example.lyrio.TelaLetras;
 import com.example.lyrio.interfaces.ArtistaSalvoListener;
 import com.example.lyrio.interfaces.MusicaSalvaListener;
 import com.example.lyrio.interfaces.NoticiaSalvaListener;
@@ -64,17 +65,15 @@ public class FragmentHome extends Fragment implements ArtistaSalvoListener,
         //Conteudo musica salva
         List<MusicaSalva> listaMusicaSalva = new ArrayList<>();
         MusicaSalva musicaSalva = new MusicaSalva();
-        musicaSalva.setNomeMusicaSalva("Passaro de Fogo");
-        musicaSalva.setImagemMusicaSalva("https://upload.wikimedia.org/wikipedia/pt/a/a5/P%C3%A1ssaro_de_Fogo.jpg");
+        musicaSalva.setNomeMusicaSalva("Imagine");
+        musicaSalva.setImagemMusicaSalva("https://studiosol-a.akamaihd.net/letras/150x150/fotos/0/6/b/9/06b906a076ba97a916e8283db292cf0a.jpg");
         listaMusicaSalva.add(musicaSalva);
-        MusicaSalva musicaSalva1 = new MusicaSalva();
-        musicaSalva1.setNomeMusicaSalva("Chuva chover");
-        musicaSalva1.setImagemMusicaSalva("https://upload.wikimedia.org/wikipedia/pt/a/a5/P%C3%A1ssaro_de_Fogo.jpg");
-        listaMusicaSalva.add(musicaSalva1);
         listaMusicaSalva.add(musicaSalva);
-        listaMusicaSalva.add(musicaSalva1);
         listaMusicaSalva.add(musicaSalva);
-        listaMusicaSalva.add(musicaSalva1);
+        listaMusicaSalva.add(musicaSalva);
+        listaMusicaSalva.add(musicaSalva);
+        listaMusicaSalva.add(musicaSalva);
+
 
         //Recycler musica salva
         MusicaSalvaAdapter musicaSalvaAdapter = new MusicaSalvaAdapter(listaMusicaSalva, this);
@@ -221,6 +220,8 @@ public class FragmentHome extends Fragment implements ArtistaSalvoListener,
 
     @Override
     public void onMusicaSalvaClicado(MusicaSalva musicaSalva) {
+        Intent intent = new Intent(getContext(), TelaLetras.class);
+        startActivity(intent);
 
     }
 
