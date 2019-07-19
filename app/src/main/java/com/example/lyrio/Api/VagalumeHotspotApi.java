@@ -1,6 +1,6 @@
 package com.example.lyrio.Api;
 
-import com.example.lyrio.Models.VagalumeHotspot;
+import com.example.lyrio.Api.BaseVagalume.VagalumeHotspot;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

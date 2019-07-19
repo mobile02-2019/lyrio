@@ -1,5 +1,6 @@
 package com.example.lyrio;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,11 +9,12 @@ import com.example.lyrio.Adapters.AlbumAdapter;
 import com.example.lyrio.Adapters.MusicaAdapter;
 import com.example.lyrio.Models.Album;
 import com.example.lyrio.Models.Musica;
+import com.example.lyrio.interfaces.AlbumListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListaAlbumActivity extends AppCompatActivity {
+public class ListaAlbumActivity extends AppCompatActivity implements AlbumListener {
 
     private RecyclerView recyclerView;
 
@@ -50,7 +52,7 @@ public class ListaAlbumActivity extends AppCompatActivity {
         listamusica.add(musica6);
 
 
-        AlbumAdapter albumAdapter = new AlbumAdapter(listaAlbum);
+        AlbumAdapter albumAdapter = new AlbumAdapter(listaAlbum, this);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false);
 
@@ -67,5 +69,10 @@ public class ListaAlbumActivity extends AppCompatActivity {
         recyclerView1.setAdapter(musicaAdapter);
         recyclerView1.setLayoutManager(linearLayoutManager1);
 
+    }
+
+    @Override
+    public void onAlbumClicado(Album album) {
+        
     }
 }

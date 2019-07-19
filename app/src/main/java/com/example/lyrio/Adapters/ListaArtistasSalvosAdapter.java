@@ -58,7 +58,7 @@ public class ListaArtistasSalvosAdapter extends RecyclerView.Adapter<ListaArtist
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imagemArtistaSalvoCircleImageView = itemView.findViewById(R.id.imagem_lista_artista_salvos_circle_image_view_id);
+            imagemArtistaSalvoCircleImageView = itemView.findViewById(R.id.busca_img_artista);
             nomeArtistaSalvoTextView = itemView.findViewById(R.id.nome_lista_artistas_salvos_text_view);
         }
         public void setupArtistaSalvo(ArtistaSalvo artistaSalvo){

@@ -13,10 +13,9 @@ import android.view.ViewGroup;
 
 import com.example.lyrio.Adapters.HotspotAdapter;
 import com.example.lyrio.Api.VagalumeHotspotApi;
-import com.example.lyrio.HotspotAbrirLink;
-import com.example.lyrio.Login.UserCadastroActivity;
+import com.example.lyrio.VagalumeAbrirLink;
 import com.example.lyrio.Models.Hotspot;
-import com.example.lyrio.Models.VagalumeHotspot;
+import com.example.lyrio.Api.BaseVagalume.VagalumeHotspot;
 import com.example.lyrio.R;
 import com.example.lyrio.interfaces.HotspotListener;
 
@@ -96,10 +95,10 @@ public class FragmentNoticias extends Fragment implements HotspotListener {
     public void onHotspotClicado(Hotspot hotspot) {
         String url = hotspot.getLink();
 
-        Intent intent = new Intent(getActivity(), HotspotAbrirLink.class);
+        Intent intent = new Intent(getActivity(), VagalumeAbrirLink.class);
         Bundle bundle = new Bundle();
 
-        // Para poder adicionar um Pais ao bundle, a classe tem que implementar "Serializable"
+        // Para poder adicionar ao bundle, a classe tem que implementar "Serializable"
         bundle.putString("HOTSPOT_LINK", hotspot.getLink());
         intent.putExtras(bundle);
 

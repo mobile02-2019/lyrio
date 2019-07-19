@@ -11,7 +11,7 @@ import com.example.lyrio.Models.Hotspot;
 
 import org.w3c.dom.Text;
 
-public class HotspotAbrirLink extends AppCompatActivity {
+public class VagalumeAbrirLink extends AppCompatActivity {
 
 //    private TextView hotspotText;
     private WebView webView;
