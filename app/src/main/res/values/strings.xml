@@ -14,5 +14,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet justo a neque sollicitudin condimentum. Mauris vitae ante nec neque egestas efficitur et nec massa. Sed pretium congue neque, eu tincidunt nisi posuere fringilla. Quisque a ullamcorper ligula. Quisque tempus arcu vitae tortor pulvinar eleifend. Praesent non rutrum enim. Suspendisse lacus ante, hendrerit quis suscipit eu, mollis ut magna. Nulla ex nisi, bibendum vel vestibulum eu, sodales et ipsum. Nulla viverra neque elit, at scelerisque leo condimentum non. Nullam sem nibh, fermentum ultricies justo sit amet, convallis feugiat tortor.</string>
 </resources>
 

@@ -1,6 +1,6 @@
 package com.example.lyrio.Interfaces;
 
-import com.example.lyrio.Models.Artista;
+import com.example.lyrio.model.Artista;
 
 public interface ArtistaListener {
 

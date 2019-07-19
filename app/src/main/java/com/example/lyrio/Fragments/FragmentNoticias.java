@@ -1,6 +1,7 @@
 package com.example.lyrio.Fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,9 +13,11 @@ import android.view.ViewGroup;
 
 import com.example.lyrio.Adapters.HotspotAdapter;
 import com.example.lyrio.Api.VagalumeHotspotApi;
+import com.example.lyrio.VagalumeAbrirLink;
 import com.example.lyrio.Models.Hotspot;
-import com.example.lyrio.Models.VagalumeHotspot;
+import com.example.lyrio.Api.BaseVagalume.VagalumeHotspot;
 import com.example.lyrio.R;
+import com.example.lyrio.interfaces.HotspotListener;
 
 import java.util.ArrayList;
 
@@ -27,7 +30,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentNoticias extends Fragment {
+public class FragmentNoticias extends Fragment implements HotspotListener {
 
     private static final String TAG = "VAGALUME";
     private Retrofit retrofit;
@@ -52,7 +55,7 @@ public class FragmentNoticias extends Fragment {
 
         // Configurar retrofit
         recyclerView = view.findViewById(R.id.recycler_view_id);
-        hotspotAdapter = new HotspotAdapter(this.getActivity()); // "this" adicionado por causa do Glide
+        hotspotAdapter = new HotspotAdapter(this.getActivity(), this); // "this" adicionado por causa do Glide
         recyclerView.setAdapter(hotspotAdapter);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.getActivity());
         recyclerView.setLayoutManager(layoutManager);
@@ -88,4 +91,17 @@ public class FragmentNoticias extends Fragment {
         });
     }
 
+    @Override
+    public void onHotspotClicado(Hotspot hotspot) {
+        String url = hotspot.getLink();
+
+        Intent intent = new Intent(getActivity(), VagalumeAbrirLink.class);
+        Bundle bundle = new Bundle();
+
+        // Para poder adicionar ao bundle, a classe tem que implementar "Serializable"
+        bundle.putString("HOTSPOT_LINK", hotspot.getLink());
+        intent.putExtras(bundle);
+
+        startActivity(intent);
+    }
 }

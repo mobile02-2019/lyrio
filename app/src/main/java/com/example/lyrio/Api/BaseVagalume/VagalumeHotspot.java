@@ -1,4 +1,6 @@
-package com.example.lyrio.Models;
+package com.example.lyrio.Api.BaseVagalume;
+
+import com.example.lyrio.Models.Hotspot;
 
 import java.util.ArrayList;
 

@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.lyrio.Models.Hotspot;
 import com.example.lyrio.R;
+import com.example.lyrio.interfaces.HotspotListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,16 +21,18 @@ import java.util.List;
 public class HotspotAdapter extends RecyclerView.Adapter<HotspotAdapter.ViewHolder>{
 
     private List<Hotspot> listaDeHotspots;
+    private HotspotListener hotspotListener;
 
     // Referencia criada para poder usar o Glide;
     private Context context;
 
-    public HotspotAdapter(Context context) {
+    public HotspotAdapter(Context context, HotspotListener hotspotListener) {
         // Inicializar lista
         listaDeHotspots = new ArrayList<>();
 
         // Para usar o Glide;
         this.context = context;
+        this.hotspotListener = hotspotListener;
     }
 
     public HotspotAdapter(List<Hotspot> listaDeHotspots){
@@ -45,7 +48,7 @@ public class HotspotAdapter extends RecyclerView.Adapter<HotspotAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull HotspotAdapter.ViewHolder viewHolder, int i) {
-        Hotspot hotspot = listaDeHotspots.get(i);
+        final Hotspot hotspot = listaDeHotspots.get(i);
         viewHolder.setupHotspot(hotspot);
 
         // Setup do glide
@@ -54,6 +57,16 @@ public class HotspotAdapter extends RecyclerView.Adapter<HotspotAdapter.ViewHold
                 .centerCrop()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(viewHolder.recyclerImage);
+
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hotspotListener.onHotspotClicado(hotspot);
+
+//                Toast.makeText(context, hotspot.getLink(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     @Override
@@ -90,4 +103,6 @@ public class HotspotAdapter extends RecyclerView.Adapter<HotspotAdapter.ViewHold
             recyclerTags.setText(hotspot.getDate_fmt());
         }
     }
+
+
 }

@@ -2,8 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.lyrio">
 
-    <uses-permission android:name="android.permission.INTERNET">
-    </uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -12,11 +11,18 @@
         android:roundIcon="@mipmap/lyr_new_icon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".ConfiguracoesActivity"></activity>
+        <activity android:name=".NoticiaActivity" />
+        <activity android:name=".PaginaArtistaActivity" />
+        <activity android:name=".ListaNoticiaSalvaActivity" />
+        <activity android:name=".ListaArtistasSalvosActivity" />
+        <activity android:name=".ListaMusicaSalvaActivity" />
         <activity android:name=".ListaDeArtistasActivity" />
         <activity android:name=".ListaAlbumActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".Login.LoginActivity"></activity>
+        <activity android:name=".VagalumeAbrirLink" />
+        <activity android:name=".Login.LoginActivity" />
         <activity android:name=".TabMenu" />
+        <activity android:name=".TelaLetras" />
         <activity android:name=".Login.UserEsqueciMinhaSenha" />
         <activity android:name=".Login.UserCadastroActivity" />
         <activity android:name=".Login.SplashActivity">

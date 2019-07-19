@@ -2,11 +2,32 @@ package com.example.lyrio.Models;
 
 import android.widget.ImageView;
 
-public class Album {
+import java.io.Serializable;
+import java.util.List;
+
+public class Album implements Serializable {
 
 
     private ImageView capaAlbum;
+    private String nomeAlbum;
+    private List<Musica> listaDeMusicaAlbum;
 
+    public List<Musica> getListaDeMusicaAlbum() {
+        return listaDeMusicaAlbum;
+    }
+
+    public void setListaDeMusicaAlbum(List<Musica> listaDeMusicaAlbum) {
+        this.listaDeMusicaAlbum = listaDeMusicaAlbum;
+    }
+
+
+    public String getNomeAlbum() {
+        return nomeAlbum;
+    }
+
+    public void setNomeAlbum(String nomeAlbum) {
+        this.nomeAlbum = nomeAlbum;
+    }
 
     public Album(int capaAlbum) {
 

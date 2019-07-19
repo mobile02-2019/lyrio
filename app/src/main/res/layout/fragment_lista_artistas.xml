@@ -21,6 +21,7 @@
                 android:layout_width="70sp"
                 android:layout_height="70sp"
                 android:src="@drawable/paula_fernandes"
+
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
