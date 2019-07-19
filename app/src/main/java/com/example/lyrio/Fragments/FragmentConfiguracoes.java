@@ -25,11 +25,13 @@ import com.example.lyrio.Adapters.NoticiaSalvaAdapter;
 import com.example.lyrio.ListaArtistasSalvosActivity;
 import com.example.lyrio.ListaMusicaSalvaActivity;
 import com.example.lyrio.ListaNoticiaSalvaActivity;
+import com.example.lyrio.Login.LoginActivity;
 import com.example.lyrio.Models.ArtistaSalvo;
 import com.example.lyrio.Models.MusicaSalva;
 import com.example.lyrio.Models.NoticiaSalva;
 import com.example.lyrio.PaginaArtistaActivity;
 import com.example.lyrio.R;
+import com.example.lyrio.TabMenu;
 import com.example.lyrio.interfaces.ArtistaSalvoListener;
 import com.example.lyrio.interfaces.MusicaSalvaListener;
 import com.example.lyrio.interfaces.NoticiaSalvaListener;
@@ -87,12 +89,15 @@ public class FragmentConfiguracoes extends Fragment {
             }
         });
 
-    } // não to achando esse erro ???
+        return view;
+    }
 
 
     private void fecharApp() {
 
-        // precisa fechas o app
+        Intent intent = new Intent(getContext(), LoginActivity.class);
+        startActivity(intent);
+
 
     }
 
