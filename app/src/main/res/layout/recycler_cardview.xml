@@ -32,7 +32,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
-                android:text="Nome do artista com mais de uma linha para fins de teste"
+                android:text="Nome do artistaOld com mais de uma linha para fins de teste"
                 android:textStyle="bold"
                 android:textSize="16sp"
 

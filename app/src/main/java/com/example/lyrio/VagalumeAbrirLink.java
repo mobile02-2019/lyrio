@@ -5,11 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.widget.TextView;
-
-import com.example.lyrio.Models.Hotspot;
-
-import org.w3c.dom.Text;
 
 public class VagalumeAbrirLink extends AppCompatActivity {
 

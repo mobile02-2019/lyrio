@@ -10,8 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.lyrio.Fragments.FragmentHome;
-import com.example.lyrio.Login.LoginActivity;
+import com.example.lyrio.login.LoginActivity;
 
 public class ConfiguracoesActivity extends AppCompatActivity {
 

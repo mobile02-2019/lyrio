@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_normal">
@@ -9,87 +9,86 @@
 
 
     <android.support.design.card.MaterialCardView
-        android:id="@+id/tela_letras_material_c"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="8dp"
-        android:layout_marginTop="8dp"
-        app:cardCornerRadius="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:cardCornerRadius="12dp">
 
-
-        <LinearLayout
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_weight="11"
-            >
+            android:layout_height="match_parent">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/icone_album_letras_id"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="5dp"
-                android:src="@drawable/john_imagine"
+                android:id="@+id/letras_artist_pic"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/ic_launcher_background"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                >
 
+            </de.hdodenhof.circleimageview.CircleImageView>
+
+            <TextView
+                android:id="@+id/letras_nome_artista_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/letras_artist_pic"
+                app:layout_constraintStart_toEndOf="@id/letras_artist_pic"
+                android:layout_marginStart="16dp"
+                android:text="Nome do Artista"
+                android:textSize="14sp"
                 />
 
             <TextView
-                android:id="@+id/nome_album_letra_id"
+                android:id="@+id/letras_nome_musica_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="16dp"
-
-                android:text="Imagine    John Lennon"
-                android:textColor="#8490D5"
+                android:textStyle="bold"
+                android:text="Nome da Música"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                app:layout_constraintStart_toStartOf="@id/letras_nome_artista_text_view"
+                app:layout_constraintBottom_toTopOf="@id/letras_nome_artista_text_view"/>
 
-
-
-
-
-        </LinearLayout>
-
-            <LinearLayout
+            <View
+                android:id="@+id/letras_div_top"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_weight="2"
-                >
+                android:layout_height="0.5dp"
+                app:layout_constraintTop_toBottomOf="@id/letras_nome_artista_text_view"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:background="@color/cinza"
+                />
 
-                <ImageView
-                    android:id="@+id/letra_musica_letras"
+            <ScrollView
+                android:id="@+id/letras_scroll_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toBottomOf="@id/letras_div_top"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:paddingBottom="16dp">
+
+                <TextView
+                    android:id="@+id/letras_letra_musica_text_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/letra_imagine" />
-            </LinearLayout>
+                    android:text="Letra da música"
+                    android:textSize="16sp"
+                    android:textAlignment="center"/>
 
 
-        </LinearLayout>
+            </ScrollView>
 
-
-
-
-
-
-
-
-
-
-
+        </android.support.constraint.ConstraintLayout>
 
     </android.support.design.card.MaterialCardView>
 
-
-
-
-</android.support.constraint.ConstraintLayout>
+</FrameLayout>
