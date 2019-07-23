@@ -1,6 +1,6 @@
 package com.example.lyrio.Api.BaseVagalume;
 
-import android.support.annotation.StringRes;
+import java.util.List;
 
 public class ApiItem {
     private String id;
@@ -13,6 +13,16 @@ public class ApiItem {
     private String campoTop;
     private String campoBottom;
     private String imgUrl;
+    private List<ApiItem> item;
+
+
+    public List<ApiItem> getItem() {
+        return item;
+    }
+
+    public void setItem(List<ApiItem> item) {
+        this.item = item;
+    }
 
     public String getImgUrl() {
         return imgUrl;

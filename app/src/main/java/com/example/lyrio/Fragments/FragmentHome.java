@@ -4,8 +4,10 @@ package com.example.lyrio.Fragments;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -17,7 +19,12 @@ import android.widget.TextView;
 import com.example.lyrio.Adapters.ArtistaSalvoAdapter;
 import com.example.lyrio.Adapters.MusicaSalvaAdapter;
 import com.example.lyrio.Adapters.NoticiaSalvaAdapter;
+import com.example.lyrio.Api.BaseVagalume.ApiArtista;
+import com.example.lyrio.Api.BaseVagalume.ApiItem;
+import com.example.lyrio.Api.BaseVagalume.VagalumeBusca;
+import com.example.lyrio.Api.VagalumeBuscaApi;
 import com.example.lyrio.ConfiguracoesActivity;
+import com.example.lyrio.Interface.ApiBuscaListener_02;
 import com.example.lyrio.ListaArtistasSalvosActivity;
 import com.example.lyrio.ListaMusicaSalvaActivity;
 import com.example.lyrio.ListaNoticiaSalvaActivity;
@@ -36,6 +43,12 @@ import com.example.lyrio.interfaces.NoticiaSalvaListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -43,7 +56,8 @@ import java.util.List;
 public class FragmentHome extends Fragment implements ArtistaSalvoListener,
         MusicaSalvaListener,
         NoticiaSalvaListener,
-        PopupMenu.OnMenuItemClickListener {
+        PopupMenu.OnMenuItemClickListener,
+        ApiBuscaListener_02 {
 
     public FragmentHome() {
         // Required empty public constructor
@@ -57,10 +71,29 @@ public class FragmentHome extends Fragment implements ArtistaSalvoListener,
     private TextView verMaisArtistas;
     private TextView verMaisNoticias;
 
+    //Adapters
+    ArtistaSalvoAdapter artistaSalvoAdapter;
+
+    //Integração Api
+    private Retrofit retrofit;
+
+    //Associar ao termo "VAGALUME" para filtrar no LOGCAT
+    private static final String TAG = "VAGALUME";
+
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_fragment_home, container, false);
+
+
+        // Iniciar retrofit para buscar infos da API
+        retrofit = new Retrofit.Builder()
+                .baseUrl("https://api.vagalume.com.br/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
 
 
         //Conteudo musica salva
@@ -86,25 +119,21 @@ public class FragmentHome extends Fragment implements ArtistaSalvoListener,
 
         //Conteudo artista salvo
         List<ArtistaSalvo> listaArtistaSalvo = new ArrayList<>();
-        ArtistaSalvo artistaSalvo = new ArtistaSalvo();
-        artistaSalvo.setNomeArtistaSalvo("Paula Fernandes");
-        artistaSalvo.setImagemArtistaSalvo("https://static.wixstatic.com/media/c1fcef_47f7144f7185411b82ac6ab7d0e8f1ec~mv2.jpg/v1/fill/w_234,h_234,al_c,q_80,usm_0.66_1.00_0.01/c1fcef_47f7144f7185411b82ac6ab7d0e8f1ec~mv2.webp");
-        listaArtistaSalvo.add(artistaSalvo);
-        listaArtistaSalvo.add(artistaSalvo);
-        listaArtistaSalvo.add(artistaSalvo);
-        listaArtistaSalvo.add(artistaSalvo);
-        listaArtistaSalvo.add(artistaSalvo);
-        listaArtistaSalvo.add(artistaSalvo);
-        listaArtistaSalvo.add(artistaSalvo);
-        listaArtistaSalvo.add(artistaSalvo);
-        listaArtistaSalvo.add(artistaSalvo);
+        getApiData("u2","");
+        getApiData("skank","");
+        getApiData("imagine-dragons","");
+        getApiData("emicida","");
+        getApiData("skrillex","");
+        getApiData("natiruts","");
+        getApiData("paralamas-do-sucesso","");
+        getApiData("rita-lee","");
 
         //Recycler artista salvo
-        ArtistaSalvoAdapter artistaSalvoAdapter = new ArtistaSalvoAdapter(listaArtistaSalvo, this);
-        RecyclerView.LayoutManager layoutManager1 = new LinearLayoutManager(view.getContext(), LinearLayoutManager.HORIZONTAL,false);
+        artistaSalvoAdapter = new ArtistaSalvoAdapter(listaArtistaSalvo, this);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(view.getContext(), 4);
         RecyclerView recyclerView1 = view.findViewById(R.id.artistas_salvos_recycler_view);
         recyclerView1.setAdapter(artistaSalvoAdapter);
-        recyclerView1.setLayoutManager(layoutManager1);
+        recyclerView1.setLayoutManager(gridLayoutManager);
 
 
         //Conteudo lista noticias
@@ -247,4 +276,71 @@ public class FragmentHome extends Fragment implements ArtistaSalvoListener,
                 return false;
         }
     }
+
+
+
+
+    // Integração com API
+
+    private void getApiData(String nomeDoArtista, String nomeDaMusica) {
+
+        nomeDoArtista = nomeDoArtista.trim().replace(" ", "-");
+        String vagaKey =  "52433bd778677b92342a16ddf927e4bf";
+
+        String buscaBase = "https://www.vagalume.com.br/";
+        String buscaArtista = nomeDoArtista+"/index.js";
+        String buscaFull = buscaBase+buscaArtista;
+
+        VagalumeBuscaApi service = retrofit.create(VagalumeBuscaApi.class);
+        Call<VagalumeBusca> vagalumeBuscaCall = service.getBuscaResponse(buscaFull);
+        vagalumeBuscaCall.enqueue(new Callback<VagalumeBusca>() {
+            @Override
+            public void onResponse(Call<VagalumeBusca> call, Response<VagalumeBusca> response) {
+                if(response.isSuccessful()){
+                    VagalumeBusca vagalumeBusca = response.body();
+                    ApiArtista apiArtist = vagalumeBusca.getArtist();
+
+                    ArtistaSalvo artistaSalvo = new ArtistaSalvo();
+                    artistaSalvo.setNomeArtistaSalvo(apiArtist.getDesc());
+                    artistaSalvo.setImagemArtistaSalvo("https://www.vagalume.com.br"+apiArtist.getPic_small());
+
+                    artistaSalvoAdapter.adicionarArtista(artistaSalvo);
+
+                    String popSong = "";
+
+                    try{
+                        popSong = apiArtist.getToplyrics().getItem().get(0).getDesc();
+                    }catch(Exception e){}
+
+                    //Logcat -> nome do artista e url
+                    Log.i(TAG, " getApiData -> Nome Artista: "+artistaSalvo.getNomeArtistaSalvo()+",\nImagem: "+artistaSalvo.getImagemArtistaSalvo()+",\nPop Song: "+popSong);
+
+
+                }else {Log.e(TAG, " onResponse: "+response.errorBody());}
+            }
+
+            @Override
+            public void onFailure(Call<VagalumeBusca> call, Throwable t){Log.e(TAG, " onFailure: "+t.getMessage());}
+        });
+    }
+
+
+    @Override
+    public void onApiBuscarClicado(ApiItem apiItem) {
+//        String url = apiItem.getUrl();
+////        String[] urlSplit = url.split("/");
+//        url = "https://www.vagalume.com.br"+url;
+//
+//        Intent intent = new Intent(getActivity(), VagalumeAbrirLink.class);
+//        Bundle bundle = new Bundle();
+//
+//        // Para poder adicionar ao bundle, a classe tem que implementar "Serializable"
+//        bundle.putString("HOTSPOT_LINK", url);
+//        intent.putExtras(bundle);
+//
+//        startActivity(intent);
+    }
+
+
+
 }

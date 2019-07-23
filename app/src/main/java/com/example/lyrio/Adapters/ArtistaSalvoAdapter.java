@@ -50,6 +50,11 @@ public class ArtistaSalvoAdapter extends RecyclerView.Adapter<ArtistaSalvoAdapte
         return listaArtistaSalvo.size();
     }
 
+    public void adicionarArtista(ArtistaSalvo artistaSalvo){
+        listaArtistaSalvo.add(artistaSalvo);
+        notifyDataSetChanged();
+    }
+
 
     class ViewHolder extends RecyclerView.ViewHolder{
         private CircleImageView imagemArtistaSalvoCircleImageView;

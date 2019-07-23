@@ -10,4 +10,6 @@ public interface VagalumeBuscaApi {
 
     @GET
     Call<VagalumeBusca> getBuscaResponse(@Url String url);
+
+
 }

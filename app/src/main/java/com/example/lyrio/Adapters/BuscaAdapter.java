@@ -8,13 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.lyrio.Api.BaseVagalume.ApiItem;
 import com.example.lyrio.R;
-import com.example.lyrio.interfaces.ApiBuscaListener;
+import com.example.lyrio.Interface.ApiBuscaListener_02;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,16 +21,16 @@ import java.util.List;
 public class BuscaAdapter extends RecyclerView.Adapter<BuscaAdapter.ViewHolder>{
 
     private List<ApiItem> listaDeApiItems;
-    private ApiBuscaListener apiBuscaListener;
+    private ApiBuscaListener_02 apiBuscaListener02;
     private Context context;
 
-    public BuscaAdapter(Context context, ApiBuscaListener apiBuscaListener){
+    public BuscaAdapter(Context context, ApiBuscaListener_02 apiBuscaListener02){
         //Inicializar lista
         listaDeApiItems = new ArrayList<>();
 
         //Para usar o Glide
         this.context = context;
-        this.apiBuscaListener = apiBuscaListener;
+        this.apiBuscaListener02 = apiBuscaListener02;
     }
 
     public BuscaAdapter(List<ApiItem> listaDeApiItems){
@@ -65,7 +64,7 @@ public class BuscaAdapter extends RecyclerView.Adapter<BuscaAdapter.ViewHolder>{
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                apiBuscaListener.onApiBuscarClicado(apiItem);
+                apiBuscaListener02.onApiBuscarClicado(apiItem);
 //                Toast.makeText(context, "ARTISTA: "+apiItem.getBand(), Toast.LENGTH_SHORT).show();
             }
         });

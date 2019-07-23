@@ -21,7 +21,7 @@ import com.example.lyrio.Api.BaseVagalume.VagalumeBusca;
 import com.example.lyrio.Api.VagalumeBuscaApi;
 import com.example.lyrio.VagalumeAbrirLink;
 import com.example.lyrio.R;
-import com.example.lyrio.interfaces.ApiBuscaListener;
+import com.example.lyrio.Interface.ApiBuscaListener_02;
 
 import java.util.ArrayList;
 
@@ -35,7 +35,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentBuscar extends Fragment implements ApiBuscaListener {
+public class FragmentBuscar extends Fragment implements ApiBuscaListener_02 {
 
     private static final String TAG = "VAGALUME";
 //    private ArrayList<ApiItem> listaTemApi = new ArrayList<>();

@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.lyrio.R;
-import com.example.lyrio.Interfaces.ArtistaListener;
+import com.example.lyrio.Interface.ArtistaListener;
 import com.example.lyrio.Models.Artista;
 
 import java.util.ArrayList;
