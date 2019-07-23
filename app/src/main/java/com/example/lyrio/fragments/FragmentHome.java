@@ -110,7 +110,7 @@ public class FragmentHome extends Fragment implements ArtistaSalvoListener,
 
         //Conteudo musica salva
         String[] idDasMusicas = {"l3ade68b7g3be34ea3", "l3ade68b6g3e9aeda3", "l3ade68b8gb0bac0b3", "l3ade68b6g59b6fda3",
-                "l3ade68b8gd9c820b3", "3ade68b3g1f86eda3","3ade68b2g3b86eda3", "3ade68b8ge087afa3"};
+                "l3ade68b8gd9c820b3", "l3ade68b7g3be34ea3", "l3ade68b6g3e9aeda3", "l3ade68b8gb0bac0b3"};
         gerarListaDeMusicas(idDasMusicas);
 
         musicaSalvaAdapter = new MusicaSalvaAdapter(this);
