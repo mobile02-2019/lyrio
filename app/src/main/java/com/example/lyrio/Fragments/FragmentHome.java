@@ -303,6 +303,7 @@ public class FragmentHome extends Fragment implements ArtistaSalvoListener,
                     ArtistaSalvo artistaSalvo = new ArtistaSalvo();
                     artistaSalvo.setNomeArtistaSalvo(apiArtist.getDesc());
                     artistaSalvo.setImagemArtistaSalvo("https://www.vagalume.com.br"+apiArtist.getPic_small());
+                    artistaSalvo.setQtdMusicas(apiArtist.getLyrics().getItem().size());
 
                     artistaSalvoAdapter.adicionarArtista(artistaSalvo);
 

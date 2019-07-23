@@ -5,9 +5,18 @@ import java.util.List;
 
 public class ArtistaSalvo implements Serializable {
     private String nomeArtistaSalvo;
+    private int qtdMusicas;
     private String imagemArtistaSalvo;
     private List<Musica> listaDeMusicas;
     private List<Album> listaDeAlbuns;
+
+    public int getQtdMusicas() {
+        return qtdMusicas;
+    }
+
+    public void setQtdMusicas(int qtdMusicas) {
+        this.qtdMusicas = qtdMusicas;
+    }
 
     public List<Musica> getListaDeMusicas() {
         return listaDeMusicas;

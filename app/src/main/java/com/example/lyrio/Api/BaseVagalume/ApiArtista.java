@@ -9,6 +9,15 @@ public class ApiArtista {
     private String pic_small;
     private String pic_medium;
     private ApiItem toplyrics;
+    private ApiItem lyrics;
+
+    public ApiItem getLyrics() {
+        return lyrics;
+    }
+
+    public void setLyrics(ApiItem lyrics) {
+        this.lyrics = lyrics;
+    }
 
     public ApiItem getToplyrics() {
         return toplyrics;

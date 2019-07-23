@@ -59,14 +59,17 @@ public class ArtistaSalvoAdapter extends RecyclerView.Adapter<ArtistaSalvoAdapte
     class ViewHolder extends RecyclerView.ViewHolder{
         private CircleImageView imagemArtistaSalvoCircleImageView;
         private TextView nomeArtistaSalvoTextView;
+        private TextView bottomText;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imagemArtistaSalvoCircleImageView = itemView.findViewById(R.id.imagem_artista_salvo_circle_image_view);
             nomeArtistaSalvoTextView = itemView.findViewById(R.id.nome_artista_salvo_text_view);
+            bottomText = itemView.findViewById(R.id.artista_bottom_text_view);
         }
         public void setupArtistaSalvo(ArtistaSalvo artistaSalvo){
             nomeArtistaSalvoTextView.setText(artistaSalvo.getNomeArtistaSalvo());
+            bottomText.setText(artistaSalvo.getQtdMusicas()+" músicas");
             Picasso.get().load(artistaSalvo.getImagemArtistaSalvo()).into(imagemArtistaSalvoCircleImageView);
         }
     }
