@@ -1,6 +1,8 @@
 package com.example.lyrio.adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,12 +13,17 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.example.lyrio.PaginaArtistaActivity;
+import com.example.lyrio.api.BaseVagalume.ApiArtista;
 import com.example.lyrio.models.Hotspot;
 import com.example.lyrio.R;
 import com.example.lyrio.interfaces.HotspotListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class HotspotAdapter extends RecyclerView.Adapter<HotspotAdapter.ViewHolder>{
 
@@ -57,16 +64,6 @@ public class HotspotAdapter extends RecyclerView.Adapter<HotspotAdapter.ViewHold
                 .centerCrop()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(viewHolder.recyclerImage);
-
-        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                hotspotListener.onHotspotClicado(hotspot);
-
-//                Toast.makeText(context, hotspot.getLink(), Toast.LENGTH_SHORT).show();
-            }
-        });
-
     }
 
     @Override
@@ -87,6 +84,7 @@ public class HotspotAdapter extends RecyclerView.Adapter<HotspotAdapter.ViewHold
         private TextView recyclerTags;
         private TextView maisInfo;
         private ImageView recyclerImage;
+        private CircleImageView hotCircleArtist;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -95,12 +93,33 @@ public class HotspotAdapter extends RecyclerView.Adapter<HotspotAdapter.ViewHold
             recyclerTags = itemView.findViewById(R.id.recycler_tags);
             maisInfo = itemView.findViewById(R.id.recycler_mais_info);
             recyclerImage = itemView.findViewById(R.id.recycler_image);
+            hotCircleArtist = itemView.findViewById(R.id.hotspot_artist_circle_image_view);
         }
 
         public void setupHotspot(Hotspot hotspot){
+            final Hotspot hots = hotspot;
+            String artistPic = "";
+
             recyclerArtista.setText(hotspot.getTitle());
+            recyclerArtista.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+            });
+
             recyclerChamada.setText(hotspot.getDescr());
             recyclerTags.setText(hotspot.getDate_fmt());
+            if(hotspot.getArtUrl()!=null){
+                Picasso.get().load("https://www.vagalume.com.br/"+hotspot.getArtUrl()+"/images/profile.jpg").into(hotCircleArtist);
+            }
+
+            maisInfo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    hotspotListener.onHotspotClicado(hots);
+                }
+            });
         }
     }
 

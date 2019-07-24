@@ -31,7 +31,6 @@ import com.example.lyrio.ListaNoticiaSalvaActivity;
 import com.example.lyrio.interfaces.EnviarDeFragmentParaActivity;
 import com.example.lyrio.login.LoginActivity;
 import com.example.lyrio.models.Musica;
-import com.example.lyrio.models.MusicaSalva;
 import com.example.lyrio.models.NoticiaSalva;
 import com.example.lyrio.NoticiaActivity;
 import com.example.lyrio.R;
@@ -110,7 +109,7 @@ public class FragmentHome extends Fragment implements ArtistaSalvoListener,
 
         //Conteudo musica salva
         String[] idDasMusicas = {"l3ade68b7g3be34ea3", "l3ade68b6g3e9aeda3", "l3ade68b8gb0bac0b3", "l3ade68b6g59b6fda3",
-                "l3ade68b8gd9c820b3", "l3ade68b7g3be34ea3", "l3ade68b6g3e9aeda3", "l3ade68b8gb0bac0b3"};
+                "l3ade68b8gd9c820b3", "3ade68b8g736ed0b3", "3ade68b8g8371d0b3", "3ade68b8gee4ed0b3"};
         gerarListaDeMusicas(idDasMusicas);
 
         musicaSalvaAdapter = new MusicaSalvaAdapter(this);

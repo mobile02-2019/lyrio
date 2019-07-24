@@ -54,7 +54,7 @@ public class FragmentNoticias extends Fragment implements HotspotListener {
                 .build();
 
         // Configurar retrofit
-        recyclerView = view.findViewById(R.id.recycler_view_id);
+        recyclerView = view.findViewById(R.id.noticias_recycler_view);
         hotspotAdapter = new HotspotAdapter(this.getActivity(), this); // "this" adicionado por causa do Glide
         recyclerView.setAdapter(hotspotAdapter);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.getActivity());

@@ -5,27 +5,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.lyrio.adapters.AlbumAdapter;
 import com.example.lyrio.adapters.ListaMusicasSalvasAdapter;
 import com.example.lyrio.api.BaseVagalume.ApiArtista;
-import com.example.lyrio.api.BaseVagalume.ApiItem;
 import com.example.lyrio.models.Album;
 import com.example.lyrio.models.Musica;
-import com.example.lyrio.models.MusicaSalva;
 import com.example.lyrio.interfaces.AlbumListener;
 import com.example.lyrio.interfaces.ListaMusicasSalvasListener;
 import com.squareup.picasso.Picasso;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 

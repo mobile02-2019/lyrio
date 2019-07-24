@@ -3,14 +3,10 @@ package com.example.lyrio;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageButton;
 
-import com.example.lyrio.adapters.ListaMusicasSalvasAdapter;
 import com.example.lyrio.models.Musica;
-import com.example.lyrio.models.MusicaSalva;
 import com.example.lyrio.interfaces.ListaMusicasSalvasListener;
 
 import java.util.ArrayList;
