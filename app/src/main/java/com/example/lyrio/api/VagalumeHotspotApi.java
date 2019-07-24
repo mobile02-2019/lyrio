@@ -4,12 +4,11 @@ import com.example.lyrio.api.BaseVagalume.VagalumeHotspot;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Query;
 
 public interface VagalumeHotspotApi {
 
-    String vagaKey =  "52433bd778677b92342a16ddf927e4bf";
-
-    @GET("hotspots.php?apikey="+vagaKey)
-    Call<VagalumeHotspot> getListaHotspot();
+    @GET("hotspots.php")
+    Call<VagalumeHotspot> getListaHotspot(@Query("apiKey") String apiKey);
 
 }

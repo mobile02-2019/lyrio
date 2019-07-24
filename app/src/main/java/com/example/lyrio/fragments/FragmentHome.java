@@ -28,6 +28,7 @@ import com.example.lyrio.api.VagalumeBuscaApi;
 import com.example.lyrio.ConfiguracoesActivity;
 import com.example.lyrio.ListaMusicaSalvaActivity;
 import com.example.lyrio.ListaNoticiaSalvaActivity;
+import com.example.lyrio.constantes.Constantes;
 import com.example.lyrio.interfaces.EnviarDeFragmentParaActivity;
 import com.example.lyrio.login.LoginActivity;
 import com.example.lyrio.models.Musica;
@@ -41,6 +42,7 @@ import com.example.lyrio.interfaces.NoticiaSalvaListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -229,7 +231,7 @@ public class FragmentHome extends Fragment implements ArtistaSalvoListener,
     //metodo que direciona para o Fragment que contem a lista de artistas salvas mas não esta direcionando direito
     private void irParaMeusArtistas() {
 
-//        Log.i(TAG, " RETROFIT: "+listaArtistaSalvo.size());
+//        Log.i(TAG, " RETROFIT: "+listaArtistaSalvo.size());                   // --------------------------------------------------------------------------
         try{
             enviarDeFragmentParaActivity.enviarListaDeArtistas(listaArtistaSalvo);
         }catch(Exception e){}
@@ -341,7 +343,8 @@ public class FragmentHome extends Fragment implements ArtistaSalvoListener,
 
         oQueBuscar = oQueBuscar.trim().replace(" ", "-");
         String buscaFull = "";
-        String vagaKey =  "52433bd778677b92342a16ddf927e4bf";
+//        String vagaKey = "71a778e291d45ea2b7d133146fd79bb5";
+        String vagaKey = UUID.randomUUID()+"";
 
         switch (artistaOuMusica){
             case "artista":

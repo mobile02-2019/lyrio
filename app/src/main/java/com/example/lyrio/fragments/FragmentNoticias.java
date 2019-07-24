@@ -20,6 +20,8 @@ import com.example.lyrio.R;
 import com.example.lyrio.interfaces.HotspotListener;
 
 import java.util.ArrayList;
+import java.util.UUID;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -68,7 +70,7 @@ public class FragmentNoticias extends Fragment implements HotspotListener {
 
     private void  getRetrofitData(){
         VagalumeHotspotApi service = retrofit.create(VagalumeHotspotApi.class);
-        Call<VagalumeHotspot> vagalumeHotspotCall = service.getListaHotspot();
+        Call<VagalumeHotspot> vagalumeHotspotCall = service.getListaHotspot(UUID.randomUUID()+"");
         vagalumeHotspotCall.enqueue(new Callback<VagalumeHotspot>() {
             @Override
             public void onResponse(Call<VagalumeHotspot> call, Response<VagalumeHotspot> response) {

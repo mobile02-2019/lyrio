@@ -16,6 +16,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
@@ -74,7 +75,8 @@ public class TelaLetras extends AppCompatActivity {
     private void getApiData(String idDaMusica) {
 
         idDaMusica = idDaMusica.trim().replace(" ", "-");
-        String vagaKey =  "52433bd778677b92342a16ddf927e4bf";
+//        String vagaKey =  "71a778e291d45ea2b7d133146fd79bb5";
+        String vagaKey =  UUID.randomUUID()+"";
         String buscaFull = "https://api.vagalume.com.br/search.php?apikey="+vagaKey+"&musid="+idDaMusica;
 
         VagalumeBuscaApi service = retrofit.create(VagalumeBuscaApi.class);
