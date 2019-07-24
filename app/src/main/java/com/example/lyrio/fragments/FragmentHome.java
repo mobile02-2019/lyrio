@@ -100,10 +100,6 @@ public class FragmentHome extends Fragment implements ArtistaSalvoListener,
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-
-
-
-
         //Inicializar lista de musicas salvas;
         listaMusicaSalva = new ArrayList<>();
 
@@ -148,16 +144,13 @@ public class FragmentHome extends Fragment implements ArtistaSalvoListener,
         listaNoticiasSalvas.add(noticiaSalva);
         listaNoticiasSalvas.add(noticiaSalva);
         listaNoticiasSalvas.add(noticiaSalva);
-        listaNoticiasSalvas.add(noticiaSalva);
-        listaNoticiasSalvas.add(noticiaSalva);
-        listaNoticiasSalvas.add(noticiaSalva);
 
         //Recycler noticias
         NoticiaSalvaAdapter noticiaSalvaAdapter = new NoticiaSalvaAdapter(listaNoticiasSalvas, this);
-        RecyclerView.LayoutManager layoutManager2 = new LinearLayoutManager(view.getContext(), LinearLayoutManager.HORIZONTAL, false);
+        GridLayoutManager gridNoticias = new GridLayoutManager(view.getContext(), 3);
         RecyclerView recyclerView2 = view.findViewById(R.id.noticias_salvas_recycler_view);
         recyclerView2.setAdapter(noticiaSalvaAdapter);
-        recyclerView2.setLayoutManager(layoutManager2);
+        recyclerView2.setLayoutManager(gridNoticias);
 
 
 
@@ -252,6 +245,7 @@ public class FragmentHome extends Fragment implements ArtistaSalvoListener,
         ApiArtista apiArtista = new ApiArtista();
         apiArtista.setDesc(artistaSalvo.getDesc());
         apiArtista.setPic_small(artistaSalvo.getPic_small());
+        apiArtista.setPic_medium(artistaSalvo.getPic_medium());
 
         //Gerar lista para enviar ao bundle
         apiArtista.setMusicasSalvas(gerarListaDeMusicas(artistaSalvo));
@@ -401,6 +395,7 @@ public class FragmentHome extends Fragment implements ArtistaSalvoListener,
                         ApiArtista artistaRecebido = new ApiArtista();
                         artistaRecebido.setDesc(apiArtist.getDesc());
                         artistaRecebido.setPic_small("https://www.vagalume.com.br"+apiArtist.getPic_small());
+                        artistaRecebido.setPic_medium("https://www.vagalume.com.br"+apiArtist.getPic_medium());
                         artistaRecebido.setQtdMusicas(apiArtist.getLyrics().getItem().size());
                         artistaRecebido.setToplyrics(apiArtist.getToplyrics());
 

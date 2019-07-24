@@ -5,9 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +29,7 @@ public class PaginaArtistaActivity extends AppCompatActivity implements ListaMus
     private TextView nomeArtistaTextView;
     private Button seguirButton;
     private ImageButton backButton;
+    private ImageView artistaBg;
 
     //Associar ao termo "VAGALUME" para filtrar no LOGCAT
     private static final String TAG = "VAGALUME";
@@ -41,14 +44,16 @@ public class PaginaArtistaActivity extends AppCompatActivity implements ListaMus
         ApiArtista artistaSalvo = (ApiArtista) bundle.getSerializable("ARTISTA");
 
         //Definir as variaveis
-        nomeArtistaTextView = findViewById(R.id.nome_pagina_artista_text_view_id);
-        imagemArtistaImageView = findViewById(R.id.imagem_pagina_artista_image_view_id);
+        artistaBg = findViewById(R.id.artista_imagem_bg);
+        nomeArtistaTextView = findViewById(R.id.artista_nome_artista_text_view);
+        imagemArtistaImageView = findViewById(R.id.artista_profile_image_view);
         seguirButton = findViewById(R.id.seguir_artista_button);
         backButton = findViewById(R.id.back_button_pagina_artista_image_button);
 
         //Set variaveis
         nomeArtistaTextView.setText(artistaSalvo.getDesc());
         Picasso.get().load(artistaSalvo.getPic_small()).into(imagemArtistaImageView);
+        Picasso.get().load(artistaSalvo.getPic_medium()).into(artistaBg);
 
         seguirButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,13 +111,24 @@ public class PaginaArtistaActivity extends AppCompatActivity implements ListaMus
     @Override
     public void onListaMusicasSalvasClicado(Musica musicaSalva) {
 
-        Intent intent = new Intent(this, VagalumeAbrirLink.class);
+//        Log.i(TAG, " LETRA: "+musicaSalva.getText());
+
+        Intent intent = new Intent(this, TelaLetras.class);
         Bundle bundle = new Bundle();
 
-        // Para poder adicionar ao bundle, a classe tem que implementar "Serializable"
-        bundle.putString("HOTSPOT_LINK", musicaSalva.getUrl());
+        bundle.putSerializable("MUSICA", musicaSalva);
         intent.putExtras(bundle);
 
         startActivity(intent);
+
+
+//        Intent intent = new Intent(this, VagalumeAbrirLink.class);
+//        Bundle bundle = new Bundle();
+//
+//        // Para poder adicionar ao bundle, a classe tem que implementar "Serializable"
+//        bundle.putString("HOTSPOT_LINK", musicaSalva.getUrl());
+//        intent.putExtras(bundle);
+//
+//        startActivity(intent);
     }
 }
