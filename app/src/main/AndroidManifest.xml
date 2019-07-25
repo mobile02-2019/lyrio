@@ -17,15 +17,14 @@
         <activity android:name=".ListaNoticiaSalvaActivity" />
         <activity android:name=".ListaArtistasSalvosActivity" />
         <activity android:name=".ListaMusicaSalvaActivity" />
-        <activity android:name=".ListaDeArtistasActivity" />
         <activity android:name=".ListaAlbumActivity" />
         <activity android:name=".VagalumeAbrirLink" />
-        <activity android:name=".Login.LoginActivity" />
+        <activity android:name=".login.LoginActivity" />
         <activity android:name=".TabMenu" />
         <activity android:name=".TelaLetras" />
-        <activity android:name=".Login.UserEsqueciMinhaSenha" />
-        <activity android:name=".Login.UserCadastroActivity" />
-        <activity android:name=".Login.SplashActivity">
+        <activity android:name=".login.UserEsqueciMinhaSenha" />
+        <activity android:name=".login.UserCadastroActivity" />
+        <activity android:name=".login.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

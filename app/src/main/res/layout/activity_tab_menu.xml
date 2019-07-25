@@ -22,7 +22,7 @@
             <!--android:layout_weight="1"-->
             <!--android:background="@color/azulBotoes"-->
             <!--android:fontFamily="@font/bree_serif_regular"-->
-            <!--android:text="Artista"-->
+            <!--android:text="Artista_old"-->
             <!--android:textColor="@color/branco" />-->
 
         <!--<Button-->

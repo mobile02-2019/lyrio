@@ -8,8 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageButton;
 
-import com.example.lyrio.Adapters.ListaNoticiasSalvasAdapter;
-import com.example.lyrio.Models.NoticiaSalva;
+import com.example.lyrio.adapters.ListaNoticiasSalvasAdapter;
+import com.example.lyrio.models.NoticiaSalva;
 import com.example.lyrio.interfaces.ListaNoticiasSalvasListener;
 
 import java.util.ArrayList;

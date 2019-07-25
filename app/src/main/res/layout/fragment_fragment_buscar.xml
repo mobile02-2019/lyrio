@@ -14,36 +14,40 @@
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="16sp">
+            android:layout_height="match_parent">
 
             <EditText
                 android:id="@+id/buscar_campo_de_busca"
                 android:layout_width="0dp"
                 android:layout_height="42dp"
                 android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
                 android:hint="Artista, música ou trecho"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toStartOf="@id/buscar_botao_busca"
+                app:layout_constraintBottom_toTopOf="@id/top_div"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
                 android:id="@+id/buscar_botao_busca"
-                android:layout_width="wrap_content"
-                android:layout_height="42dp"
-                android:layout_marginEnd="32dp"
-                android:text="Buscar"
-                android:textColor="@color/branco"
-                android:background="@color/azulBotoes"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="28dp"
+                android:background="@drawable/ic_round_search_24px"
+                android:backgroundTint="@color/azulBotoes"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/top_div"
+                />
 
             <View
                 android:id="@+id/top_div"
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
                 android:layout_marginTop="16dp"
+                app:layout_goneMarginTop="64dp"
+                android:background="@color/cinza"
                 app:layout_constraintTop_toBottomOf="@id/buscar_botao_busca"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>
