@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -28,7 +27,6 @@ import com.example.lyrio.api.VagalumeBuscaApi;
 import com.example.lyrio.ConfiguracoesActivity;
 import com.example.lyrio.ListaMusicaSalvaActivity;
 import com.example.lyrio.ListaNoticiaSalvaActivity;
-import com.example.lyrio.constantes.Constantes;
 import com.example.lyrio.interfaces.EnviarDeFragmentParaActivity;
 import com.example.lyrio.login.LoginActivity;
 import com.example.lyrio.models.Musica;
@@ -39,6 +37,7 @@ import com.example.lyrio.TelaLetras;
 import com.example.lyrio.interfaces.ArtistaSalvoListener;
 import com.example.lyrio.interfaces.MusicaSalvaListener;
 import com.example.lyrio.interfaces.NoticiaSalvaListener;
+import com.example.lyrio.util.Constantes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -343,8 +342,7 @@ public class FragmentHome extends Fragment implements ArtistaSalvoListener,
 
         oQueBuscar = oQueBuscar.trim().replace(" ", "-");
         String buscaFull = "";
-//        String vagaKey = "71a778e291d45ea2b7d133146fd79bb5";
-        String vagaKey = UUID.randomUUID()+"";
+        String vagaKey = Constantes.VAGALUME_KEY;
 
         switch (artistaOuMusica){
             case "artista":

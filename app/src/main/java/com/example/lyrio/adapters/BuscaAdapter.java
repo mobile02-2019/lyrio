@@ -8,12 +8,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.lyrio.api.BaseVagalume.ApiItem;
 import com.example.lyrio.R;
 import com.example.lyrio.interfaces.ApiBuscaListener;
+import com.example.lyrio.util.Constantes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -89,6 +92,7 @@ public class BuscaAdapter extends RecyclerView.Adapter<BuscaAdapter.ViewHolder>{
 
     class ViewHolder extends RecyclerView.ViewHolder{
 
+        private ToggleButton favourite_button;
         private TextView buscaCampoTop;
         private TextView buscaCampoBottom;
         private ImageView buscaImgArtista;
@@ -99,11 +103,22 @@ public class BuscaAdapter extends RecyclerView.Adapter<BuscaAdapter.ViewHolder>{
             buscaCampoTop = itemView.findViewById(R.id.busca_campo_top);
             buscaCampoBottom = itemView.findViewById(R.id.busca_campo_bottom);
             buscaImgArtista = itemView.findViewById(R.id.busca_img_artista);
+            favourite_button = itemView.findViewById(R.id.letras_favorito_button);
         }
 
         public void setupApiItem(ApiItem apiItem){
             buscaCampoTop.setText(apiItem.getCampoTop());
             buscaCampoBottom.setText(apiItem.getCampoBottom());
+            favourite_button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(favourite_button.isChecked()){
+                    Toast.makeText(context, Constantes.TOAST_BUSCA_FAVORITA_ADICIONAR, Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(context, Constantes.TOAST_BUSCA_FAVORITA_EXCLUIR, Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
         }
     }
 

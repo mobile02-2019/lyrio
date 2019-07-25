@@ -48,6 +48,14 @@ public class ArtistaSalvoAdapter extends RecyclerView.Adapter<ArtistaSalvoAdapte
 
     @Override
     public int getItemCount() {
+        int num = 0;
+
+        if(listaArtistaSalvo.size()>8){
+            num = 8;
+        }else{
+            num = listaArtistaSalvo.size();
+        }
+
         return listaArtistaSalvo.size();
     }
 

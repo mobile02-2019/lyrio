@@ -5,13 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.example.lyrio.adapters.ListaMusicasSalvasAdapter;
 import com.example.lyrio.api.BaseVagalume.ApiArtista;
@@ -19,6 +18,7 @@ import com.example.lyrio.models.Album;
 import com.example.lyrio.models.Musica;
 import com.example.lyrio.interfaces.AlbumListener;
 import com.example.lyrio.interfaces.ListaMusicasSalvasListener;
+import com.example.lyrio.util.Constantes;
 import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -27,7 +27,7 @@ public class PaginaArtistaActivity extends AppCompatActivity implements ListaMus
 
     private CircleImageView imagemArtistaImageView;
     private TextView nomeArtistaTextView;
-    private Button seguirButton;
+    private ToggleButton seguirButton;
     private ImageButton backButton;
     private ImageView artistaBg;
 
@@ -47,8 +47,8 @@ public class PaginaArtistaActivity extends AppCompatActivity implements ListaMus
         artistaBg = findViewById(R.id.artista_imagem_bg);
         nomeArtistaTextView = findViewById(R.id.artista_nome_artista_text_view);
         imagemArtistaImageView = findViewById(R.id.artista_profile_image_view);
-        seguirButton = findViewById(R.id.seguir_artista_button);
-        backButton = findViewById(R.id.back_button_pagina_artista_image_button);
+        seguirButton = findViewById(R.id.letras_favorito_button);
+//        backButton = findViewById(R.id.back_button_pagina_artista_image_button);
 
         //Set variaveis
         nomeArtistaTextView.setText(artistaSalvo.getDesc());
@@ -58,16 +58,20 @@ public class PaginaArtistaActivity extends AppCompatActivity implements ListaMus
         seguirButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(PaginaArtistaActivity.this, "Seguindo Artista", Toast.LENGTH_SHORT).show();
+                if(seguirButton.isChecked()){
+                    Toast.makeText(PaginaArtistaActivity.this, Constantes.TOAST_ARTISTA_FAVORITO_EXCLUIR, Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(PaginaArtistaActivity.this, Constantes.TOAST_ARTISTA_FAVORITO_ADICIONAR, Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                voltarParaUltimaPagina();
-            }
-        });
+//        backButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                voltarParaUltimaPagina();
+//            }
+//        });
 
         //Recycler com a lista de músicas que veio no Bundle
         ListaMusicasSalvasAdapter listaMusicasSalvasAdapter = new ListaMusicasSalvasAdapter(artistaSalvo.getMusicasSalvas(), this, artistaSalvo);

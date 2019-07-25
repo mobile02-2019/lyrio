@@ -1,8 +1,6 @@
 package com.example.lyrio.adapters;
 
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,14 +8,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.example.lyrio.PaginaArtistaActivity;
-import com.example.lyrio.api.BaseVagalume.ApiArtista;
 import com.example.lyrio.models.Hotspot;
 import com.example.lyrio.R;
 import com.example.lyrio.interfaces.HotspotListener;
+import com.example.lyrio.util.Constantes;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -49,7 +48,7 @@ public class HotspotAdapter extends RecyclerView.Adapter<HotspotAdapter.ViewHold
     @NonNull
     @Override
     public HotspotAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recycler_cardview, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.celula_hotspot_noticia, viewGroup, false);
         return new ViewHolder(view);
     }
 
@@ -79,6 +78,7 @@ public class HotspotAdapter extends RecyclerView.Adapter<HotspotAdapter.ViewHold
     // Começar sempre por essa classe
     class ViewHolder extends RecyclerView.ViewHolder{
 
+        private ToggleButton favourite_toggle;
         private TextView recyclerArtista;
         private TextView recyclerChamada;
         private TextView recyclerTags;
@@ -91,9 +91,10 @@ public class HotspotAdapter extends RecyclerView.Adapter<HotspotAdapter.ViewHold
             recyclerArtista = itemView.findViewById(R.id.recycler_nome_artista);
             recyclerChamada = itemView.findViewById(R.id.recycler_chamada);
             recyclerTags = itemView.findViewById(R.id.recycler_tags);
-            maisInfo = itemView.findViewById(R.id.recycler_mais_info);
+            maisInfo = itemView.findViewById(R.id.hotspot_abrir_link);
             recyclerImage = itemView.findViewById(R.id.recycler_image);
             hotCircleArtist = itemView.findViewById(R.id.hotspot_artist_circle_image_view);
+            favourite_toggle = itemView.findViewById(R.id.letras_favorito_button);
         }
 
         public void setupHotspot(Hotspot hotspot){
@@ -118,6 +119,17 @@ public class HotspotAdapter extends RecyclerView.Adapter<HotspotAdapter.ViewHold
                 @Override
                 public void onClick(View v) {
                     hotspotListener.onHotspotClicado(hots);
+                }
+            });
+
+            favourite_toggle.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(favourite_toggle.isChecked()){
+                        Toast.makeText(context, Constantes.TOAST_NOTICIA_FAVORITA_ADICIONAR, Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(context, Constantes.TOAST_NOTICIA_FAVORITA_EXCLUIR, Toast.LENGTH_SHORT).show();
+                    }
                 }
             });
         }

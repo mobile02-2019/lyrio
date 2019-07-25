@@ -4,7 +4,10 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.example.lyrio.R;
 import com.example.lyrio.api.BaseVagalume.ApiArtista;
@@ -12,6 +15,7 @@ import com.example.lyrio.api.BaseVagalume.ApiItem;
 import com.example.lyrio.api.BaseVagalume.VagalumeBusca;
 import com.example.lyrio.api.VagalumeBuscaApi;
 import com.example.lyrio.models.Musica;
+import com.example.lyrio.util.Constantes;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -33,6 +37,7 @@ public class TelaLetras extends AppCompatActivity {
     private CircleImageView imagemArtista;
     private Retrofit retrofit;
     private Musica musicaSelecionada;
+    private ToggleButton favourite_button;
 
 
     //Associar ao termo "VAGALUME" para filtrar no LOGCAT
@@ -60,6 +65,18 @@ public class TelaLetras extends AppCompatActivity {
         nomeDoArtista = findViewById(R.id.letras_nome_artista_text_view);
         letraDaMusica = findViewById(R.id.letras_letra_musica_text_view);
         imagemArtista = findViewById(R.id.letras_artist_pic);
+        favourite_button = findViewById(R.id.letras_favorito_button);
+
+        favourite_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(favourite_button.isChecked()){
+                    Toast.makeText(TelaLetras.this, Constantes.TOAST_MUSICA_FAVORITA_ADICIONAR, Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(TelaLetras.this, Constantes.TOAST_MUSICA_FAVORITA_EXCLUIR, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
 
         if(musicaSalva.getText()!=null){
@@ -75,8 +92,7 @@ public class TelaLetras extends AppCompatActivity {
     private void getApiData(String idDaMusica) {
 
         idDaMusica = idDaMusica.trim().replace(" ", "-");
-//        String vagaKey =  "71a778e291d45ea2b7d133146fd79bb5";
-        String vagaKey =  UUID.randomUUID()+"";
+        String vagaKey =  Constantes.VAGALUME_KEY;
         String buscaFull = "https://api.vagalume.com.br/search.php?apikey="+vagaKey+"&musid="+idDaMusica;
 
         VagalumeBuscaApi service = retrofit.create(VagalumeBuscaApi.class);

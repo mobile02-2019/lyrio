@@ -50,6 +50,14 @@ public class MusicaSalvaAdapter extends RecyclerView.Adapter<MusicaSalvaAdapter.
 
     @Override
     public int getItemCount() {
+        int num = 0;
+
+        if(listaMusicaSalva.size()>8){
+            num = 8;
+        }else{
+            num = listaMusicaSalva.size();
+        }
+
         return listaMusicaSalva.size();
     }
 

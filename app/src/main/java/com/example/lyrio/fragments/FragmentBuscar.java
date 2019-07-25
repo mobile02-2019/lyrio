@@ -22,6 +22,7 @@ import com.example.lyrio.api.VagalumeBuscaApi;
 import com.example.lyrio.VagalumeAbrirLink;
 import com.example.lyrio.R;
 import com.example.lyrio.interfaces.ApiBuscaListener;
+import com.example.lyrio.util.Constantes;
 
 import java.util.ArrayList;
 
@@ -35,7 +36,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentBuscar extends Fragment implements ApiBuscaListener {
+public class FragmentBuscar extends Fragment implements ApiBuscaListener{
 
     private static final String TAG = "VAGALUME";
 //    private ArrayList<ApiItem> listaTemApi = new ArrayList<>();
@@ -86,7 +87,7 @@ public class FragmentBuscar extends Fragment implements ApiBuscaListener {
     private void fazerBusca(String termoBuscado, String artistaOuMusica, Integer qtdResultados) {
 
         termoBuscado = termoBuscado.trim().replace(" ", "%20");
-        String vagaKey =  "52433bd778677b92342a16ddf927e4bf";
+        String vagaKey =  Constantes.VAGALUME_KEY;
         String limitador = "&limit="+qtdResultados.toString();
 
         String buscaBase = "";
@@ -173,7 +174,6 @@ public class FragmentBuscar extends Fragment implements ApiBuscaListener {
     @Override
     public void onApiBuscarClicado(ApiItem apiItem) {
         String url = apiItem.getUrl();
-//        String[] urlSplit = url.split("/");
         url = "https://www.vagalume.com.br"+url;
 
         Intent intent = new Intent(getActivity(), VagalumeAbrirLink.class);
