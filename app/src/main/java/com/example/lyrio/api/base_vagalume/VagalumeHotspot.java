@@ -1,4 +1,4 @@
-package com.example.lyrio.api.BaseVagalume;
+package com.example.lyrio.api.base_vagalume;
 
 import com.example.lyrio.models.Hotspot;
 

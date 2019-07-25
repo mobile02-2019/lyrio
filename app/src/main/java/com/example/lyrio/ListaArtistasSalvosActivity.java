@@ -8,11 +8,10 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.example.lyrio.adapters.ArtistaSalvoAdapter;
-import com.example.lyrio.api.BaseVagalume.ApiArtista;
+import com.example.lyrio.api.base_vagalume.ApiArtista;
 import com.example.lyrio.interfaces.ArtistaSalvoListener;
 import com.example.lyrio.interfaces.EnviarDeFragmentParaActivity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ListaArtistasSalvosActivity extends AppCompatActivity

@@ -15,13 +15,12 @@ import com.example.lyrio.adapters.HotspotAdapter;
 import com.example.lyrio.api.VagalumeHotspotApi;
 import com.example.lyrio.VagalumeAbrirLink;
 import com.example.lyrio.models.Hotspot;
-import com.example.lyrio.api.BaseVagalume.VagalumeHotspot;
+import com.example.lyrio.api.base_vagalume.VagalumeHotspot;
 import com.example.lyrio.R;
 import com.example.lyrio.interfaces.HotspotListener;
 
 import java.util.ArrayList;
 import java.util.UUID;
-import java.util.concurrent.atomic.AtomicInteger;
 
 import retrofit2.Call;
 import retrofit2.Callback;

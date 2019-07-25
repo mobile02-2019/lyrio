@@ -13,7 +13,7 @@ import android.widget.ToggleButton;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.example.lyrio.api.BaseVagalume.ApiItem;
+import com.example.lyrio.api.base_vagalume.ApiItem;
 import com.example.lyrio.R;
 import com.example.lyrio.interfaces.ApiBuscaListener;
 import com.example.lyrio.util.Constantes;

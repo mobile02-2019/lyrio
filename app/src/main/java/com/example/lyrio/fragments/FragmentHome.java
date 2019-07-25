@@ -20,9 +20,9 @@ import com.example.lyrio.PaginaArtistaActivity;
 import com.example.lyrio.adapters.ArtistaSalvoAdapter;
 import com.example.lyrio.adapters.MusicaSalvaAdapter;
 import com.example.lyrio.adapters.NoticiaSalvaAdapter;
-import com.example.lyrio.api.BaseVagalume.ApiArtista;
-import com.example.lyrio.api.BaseVagalume.ApiItem;
-import com.example.lyrio.api.BaseVagalume.VagalumeBusca;
+import com.example.lyrio.api.base_vagalume.ApiArtista;
+import com.example.lyrio.api.base_vagalume.ApiItem;
+import com.example.lyrio.api.base_vagalume.VagalumeBusca;
 import com.example.lyrio.api.VagalumeBuscaApi;
 import com.example.lyrio.ConfiguracoesActivity;
 import com.example.lyrio.ListaMusicaSalvaActivity;
@@ -41,7 +41,6 @@ import com.example.lyrio.util.Constantes;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 import retrofit2.Call;
 import retrofit2.Callback;

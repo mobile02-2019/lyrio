@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.lyrio.api.BaseVagalume.ApiArtista;
+import com.example.lyrio.api.base_vagalume.ApiArtista;
 import com.example.lyrio.R;
 import com.example.lyrio.interfaces.ArtistaSalvoListener;
 import com.squareup.picasso.Picasso;

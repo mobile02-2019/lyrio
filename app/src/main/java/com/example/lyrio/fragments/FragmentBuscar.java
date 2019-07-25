@@ -15,9 +15,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.lyrio.adapters.BuscaAdapter;
-import com.example.lyrio.api.BaseVagalume.ApiItem;
-import com.example.lyrio.api.BaseVagalume.ApiResponse;
-import com.example.lyrio.api.BaseVagalume.VagalumeBusca;
+import com.example.lyrio.api.base_vagalume.ApiItem;
+import com.example.lyrio.api.base_vagalume.ApiResponse;
+import com.example.lyrio.api.base_vagalume.VagalumeBusca;
 import com.example.lyrio.api.VagalumeBuscaApi;
 import com.example.lyrio.VagalumeAbrirLink;
 import com.example.lyrio.R;

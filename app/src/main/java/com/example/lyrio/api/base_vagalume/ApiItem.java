@@ -1,4 +1,4 @@
-package com.example.lyrio.api.BaseVagalume;
+package com.example.lyrio.api.base_vagalume;
 
 import java.util.List;
 

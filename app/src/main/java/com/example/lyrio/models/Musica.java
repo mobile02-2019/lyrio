@@ -1,7 +1,7 @@
 package com.example.lyrio.models;
 
 
-import com.example.lyrio.api.BaseVagalume.ApiArtista;
+import com.example.lyrio.api.base_vagalume.ApiArtista;
 
 import java.io.Serializable;
 

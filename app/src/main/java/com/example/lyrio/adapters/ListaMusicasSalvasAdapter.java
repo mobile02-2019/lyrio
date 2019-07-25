@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.lyrio.api.BaseVagalume.ApiArtista;
+import com.example.lyrio.api.base_vagalume.ApiArtista;
 import com.example.lyrio.models.Musica;
 import com.example.lyrio.R;
 import com.example.lyrio.interfaces.ListaMusicasSalvasListener;

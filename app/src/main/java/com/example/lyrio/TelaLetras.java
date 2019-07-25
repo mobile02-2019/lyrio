@@ -9,18 +9,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import com.example.lyrio.R;
-import com.example.lyrio.api.BaseVagalume.ApiArtista;
-import com.example.lyrio.api.BaseVagalume.ApiItem;
-import com.example.lyrio.api.BaseVagalume.VagalumeBusca;
+import com.example.lyrio.api.base_vagalume.VagalumeBusca;
 import com.example.lyrio.api.VagalumeBuscaApi;
 import com.example.lyrio.models.Musica;
 import com.example.lyrio.util.Constantes;
 import com.squareup.picasso.Picasso;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;

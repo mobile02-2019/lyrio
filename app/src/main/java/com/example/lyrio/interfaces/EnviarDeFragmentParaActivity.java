@@ -1,6 +1,6 @@
 package com.example.lyrio.interfaces;
 
-import com.example.lyrio.api.BaseVagalume.ApiArtista;
+import com.example.lyrio.api.base_vagalume.ApiArtista;
 
 import java.util.List;
 

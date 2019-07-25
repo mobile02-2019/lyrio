@@ -13,7 +13,7 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.example.lyrio.adapters.ListaMusicasSalvasAdapter;
-import com.example.lyrio.api.BaseVagalume.ApiArtista;
+import com.example.lyrio.api.base_vagalume.ApiArtista;
 import com.example.lyrio.models.Album;
 import com.example.lyrio.models.Musica;
 import com.example.lyrio.interfaces.AlbumListener;
