@@ -1,18 +1,14 @@
 package com.example.lyrio;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.example.lyrio.adapters.AlbumAdapter;
-import com.example.lyrio.adapters.MusicaAdapter;
 import com.example.lyrio.models.Album;
-import com.example.lyrio.models.Musica;
 import com.example.lyrio.interfaces.AlbumListener;
 
 import java.util.ArrayList;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 public class ListaAlbumActivity extends AppCompatActivity implements AlbumListener {

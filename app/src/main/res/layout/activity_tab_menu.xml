@@ -47,16 +47,16 @@
 
     <!--</LinearLayout>-->
 
-    <android.support.v4.view.ViewPager
+    <androidx.viewpager.widget.ViewPager
         android:paddingTop="8dp"
         android:paddingBottom="2dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:id="@+id/viewpager_id">
-    </android.support.v4.view.ViewPager>
+    </androidx.viewpager.widget.ViewPager>
 
-    <android.support.design.widget.TabLayout
+    <com.google.android.material.tabs.TabLayout
         android:id="@+id/tablayout_id"
         android:layout_width="match_parent"
         android:layout_height="56dp"
@@ -68,6 +68,6 @@
         app:tabTextAppearance="@style/tab_text_font"
         app:tabTextColor="@color/tabTxtColor">
 
-    </android.support.design.widget.TabLayout>
+    </com.google.android.material.tabs.TabLayout>
 
 </LinearLayout>
